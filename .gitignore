@@ -1,4 +1,6 @@
 /jade
+/sass
 
+*.scssc
 *.DS_Store
 *.codekit
