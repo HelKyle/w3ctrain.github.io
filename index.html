@@ -560,7 +560,14 @@
           $("#open-sidebar").on("click", function() {
             $(this).toggleClass('open');
             $('body').toggleClass('sidebar-open');
+          });
+      
+          $('.author-meta').on("mouseenter", function() {
+            $(this).addClass('hover');
+          }).on("mouseleave", function() {
+            $(this).removeClass('hover');
           })
+      
       });
     </script>
   </body>
