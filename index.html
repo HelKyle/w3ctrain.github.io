@@ -15,6 +15,12 @@
   </head>
   <body>
     <article class="fullheight">
+      <div id="open-sidebar" class="hamburger-wrapper">
+        <div class="hamburger-arrow">
+          <div class="before"></div>
+          <div class="after"></div>
+        </div>
+      </div>
       <aside id="sidebar" class="sidebar">
         <div id="sticker" class="clearfix">
           <div class="sidebar-content col-xs-12">
@@ -32,7 +38,7 @@
                 <li data-index="friends"><a href="">其他链接</a></li>
               </ul>
               <div class="author-meta text-center">
-                <div class="flipper"><a href="http://weibo.com/joueu" title="我是周晓楷"><img src="http://7xlkda.com1.z0.glb.clouddn.com/avatar_helkyle.png" alt="我是周晓楷" class="avatar front"><img src="http://7xirra.com1.z0.glb.clouddn.com/helkyle.jpg" alt="周晓楷" class="avatar back"></a></div><br>
+                <div class="flipper"><a href="http://weibo.com/joueu" title="Hello! 我是周晓楷"><img src="http://7xlkda.com1.z0.glb.clouddn.com/avatar_helkyle.png" class="avatar front"><img src="http://7xirra.com1.z0.glb.clouddn.com/helkyle.jpg" alt="我是周晓楷" class="avatar back"></a></div><br>
                 <p class="author-desc">我是周晓楷，华南师范大学大四学生，你可以通过下列方式找到我。</p>
                 <button href="http://weibo.com/joueu" class="btn btn-outline__radius hover-me">Hover Me!</button>
                 <ul class="icon-wrapper text-center animated">
@@ -445,23 +451,21 @@
               <div class="section__content">
                 <dl class="links-list">
                       <dt class="links-title arrow-box">书籍</dt>
-                      <dd class="links-item"><a href="https://book.douban.com/subject/10546125/" target="_blank" class="tooltip">JavaScript高级程序设计（第3版）</a>
+                      <dd class="links-item"><a href="https://book.douban.com/subject/10546125/" target="_blank" class="tooltip">《JavaScript高级程序设计（第3版）》</a>
                       </dd>
-                      <dd class="links-item"><a href="http://www.amazon.cn/gp/product/B00NN8GJGA" target="_blank" class="tooltip">单页Web应用:JavaScript从前端到后端</a>
+                      <dd class="links-item"><a href="http://www.amazon.cn/gp/product/B00NN8GJGA" target="_blank" class="tooltip">《单页Web应用:JavaScript从前端到后端》</a>
                       </dd>
-                      <dd class="links-item"><a href="http://book.douban.com/subject/3590768/" target="_blank" class="tooltip">JavaScript语言精粹</a>
+                      <dd class="links-item"><a href="http://book.douban.com/subject/3590768/" target="_blank" class="tooltip">《JavaScript语言精粹》</a>
                       </dd>
-                      <dd class="links-item"><a href="http://book.douban.com/subject/6038371/" target="_blank" class="tooltip">JavaScript DOM编程艺术 （第2版）</a>
+                      <dd class="links-item"><a href="http://book.douban.com/subject/6038371/" target="_blank" class="tooltip">《JavaScript DOM编程艺术 （第2版）》</a>
                       </dd>
-                      <dd class="links-item"><a href="http://book.douban.com/subject/21792530/" target="_blank" class="tooltip">编写可维护的JavaScript</a>
+                      <dd class="links-item"><a href="http://book.douban.com/subject/21792530/" target="_blank" class="tooltip">《编写可维护的JavaScript》</a>
                       </dd>
-                      <dd class="links-item"><a href="http://book.douban.com/subject/26598045/" target="_blank" class="tooltip">Web全栈工程师的自我修养</a>
+                      <dd class="links-item"><a href="http://book.douban.com/subject/26598045/" target="_blank" class="tooltip">《Web全栈工程师的自我修养》</a>
                       </dd>
-                      <dd class="links-item"><a href="http://book.douban.com/subject/25768396/" target="_blank" class="tooltip">深入浅出Node.js</a>
+                      <dd class="links-item"><a href="http://book.douban.com/subject/25768396/" target="_blank" class="tooltip">《深入浅出Node.js》</a>
                       </dd>
-                      <dd class="links-item"><a href="http://book.douban.com/subject/20390374/" target="_blank" class="tooltip">响应式Web设计</a>
-                      </dd>
-                      <dd class="links-item"><a href="" target="_blank" class="tooltip">jQuery权威指南(第2版)</a>
+                      <dd class="links-item"><a href="http://book.douban.com/subject/20390374/" target="_blank" class="tooltip">《响应式Web设计》</a>
                       </dd>
                 </dl>
                 <dl class="links-list">
@@ -530,6 +534,7 @@
              touchDevices: false,
              trigger: "hover",
              position: "bottom",
+             'maxWidth': 300  
           });
           $("#sidebar-nav").on("click", "li", function(event) {
               event.preventDefault();
@@ -546,11 +551,16 @@
                       $("#main-content").animate({
                           scrollTop: $ele.position().top + 6},
                           300, function() {
-                          history.pushState({index: index}, "", "#" + index);
+                          //- history.pushState({index: index}, "", "#" + index);
                       });
                   }
               }
+              $("#open-sidebar").click();
           });
+          $("#open-sidebar").on("click", function() {
+            $(this).toggleClass('open');
+            $('body').toggleClass('sidebar-open');
+          })
       });
     </script>
   </body>
