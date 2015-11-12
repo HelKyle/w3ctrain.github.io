@@ -134,6 +134,8 @@
                       </dd>
                       <dd class="links-item"><a href="http://www.adobe.com/cn/products/dreamweaver.html" target="_blank" class="tooltip">Dreamweaver</a>
                       </dd>
+                      <dd class="links-item"><a href="https://www.jetbrains.com/webstorm/" title=" WebStorm 是jetbrains公司旗下一款JavaScript 开发工具。被广大中国JS开发者誉为“Web前端开发神器”、“最强大的HTML5编辑器”、“最智能的JavaScript IDE”等。与IntelliJ IDEA同源，继承了IntelliJ IDEA强大的JS部分的功能。 " target="_blank" class="tooltip">WebStorm</a>
+                      </dd>
                 </dl>
                 <dl class="links-list">
                       <dt class="links-title arrow-box">在线编辑</dt>
@@ -404,7 +406,7 @@
                   <h3 id="public" class="section__header">微博/公众号</h3>
               <div class="section__content">
                 <dl class="links-list">
-                      <dt class="links-title arrow-box">微博</dt>
+                      <dt class="links-title arrow-box">前端微博</dt>
                       <dd class="links-item"><a href="http://weibo.com/fouber" target="_blank" class="tooltip">前端农民工</a>
                       </dd>
                       <dd class="links-item"><a href="http://weibo.com/cssmagic" target="_blank" class="tooltip">CSS魔法</a>
@@ -412,6 +414,18 @@
                       <dd class="links-item"><a href="weibo.com/sharpmaster" target="_blank" class="tooltip">民工精髓V</a>
                       </dd>
                       <dd class="links-item"><a href="http://weibo.com/zhangxinxu" target="_blank" class="tooltip">张鑫旭</a>
+                      </dd>
+                      <dd class="links-item"><a href="http://weibo.com/173248656" target="_blank" class="tooltip">小胡子哥</a>
+                      </dd>
+                      <dd class="links-item"><a href="http://weibo.com/arttechdesign" target="_blank" class="tooltip">尤小右</a>
+                      </dd>
+                      <dd class="links-item"><a href="http://weibo.com/fekb" target="_blank" class="tooltip">前端快爆</a>
+                      </dd>
+                      <dd class="links-item"><a href="http://weibo.com/w3cfuns" target="_blank" class="tooltip">w3cfuns</a>
+                      </dd>
+                      <dd class="links-item"><a href="http://weibo.com/htmljs" target="_blank" class="tooltip">前端乱炖</a>
+                      </dd>
+                      <dd class="links-item"><a href="http://weibo.com/baidujs" target="_blank" class="tooltip">JS小组</a>
                       </dd>
                       <dd class="links-item"><a href="http://www.w3ctrain.com/contribute/" title="你可以先在这里提交" target="_blank" class="tooltip">+</a></dd>
                 </dl>
@@ -477,6 +491,8 @@
                       <dd class="links-item"><a href="https://github.com/jrburke/requirejs" target="_blank" class="tooltip">requirejs</a>
                       </dd>
                       <dd class="links-item"><a href="https://github.com/madrobby/zepto" target="_blank" class="tooltip">Zepto</a>
+                      </dd>
+                      <dd class="links-item"><a href="https://github.com/taijiweb/domcom" title="Domcom是一个提供DOM部件的web框架，功能与ReactJS类似，但是具有一些不同的特点。 Domcom整体特性 Domcom是DOM和Component合并后的缩写，宗旨是为开发Web应用提供DOM部件。通过Domcom，可以整体上改善数据管理，尽可能减少不必要的DOM操作，提升程序运行效率。" target="_blank" class="tooltip">Domcom</a>
                       </dd>
                 </dl>
                 <dl class="links-list">
@@ -551,6 +567,11 @@
                       <dd class="links-item"><a href="http://sass-guidelin.es/" target="_blank" class="tooltip">Sass规范</a>
                       </dd>
                 </dl>
+                <dl class="links-list">
+                      <dt class="links-title arrow-box">翻译文章</dt>
+                      <dd class="links-item"><a href="http://www.w3ctrain.com/2015/11/12/visual-guide-to-css3-flexbox-flexbox-playground/" target="_blank" class="tooltip">学习flexbox属性</a>
+                      </dd>
+                </dl>
               </div>
             </section>
             <section class="section">
@@ -608,6 +629,10 @@
           })
       });
       $(function() {
+          var configModule = {
+            scrollTopTime: 250,
+          };
+      
           $(".tooltip").tooltipster({
              animation: "fade",
              delay: 200,
@@ -616,6 +641,7 @@
              position: "bottom",
              'maxWidth': 300  
           });
+      
           $("#sidebar-nav").on("click", "li", function(event) {
               event.preventDefault();
               /* Act on the event */
@@ -630,7 +656,8 @@
                   if ($ele.length) {
                       $("#main-content").animate({
                           scrollTop: $ele.position().top + 6},
-                          300, function() {
+                          configModule.scrollTopTime,
+                          function() {
                           //- history.pushState({index: index}, "", "#" + index);
                       });
                   }
