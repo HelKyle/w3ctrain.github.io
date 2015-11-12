@@ -1,6 +1,7 @@
 # w3ctrain.github.io
 
 前端收藏夹
+使用[jade](https://github.com/jadejs/jade)，[sass](http://sass-lang.com/)等工具
 
 ## License
 
