@@ -23,7 +23,7 @@
     </script>
   </head>
   <body>
-    <article class="fullheight">
+    <article class="fullheight w3ctrain">
       <div id="open-sidebar" class="hamburger-wrapper">
         <div class="hamburger-arrow">
           <div class="before"></div>
@@ -33,7 +33,7 @@
       <div class="add-link-wrapper"><a target="_blank" href="http://www.w3ctrain.com/contribute/" class="add-link">贡献链接</a></div>
       <aside id="sidebar" class="sidebar">
         <div id="sticker" class="clearfix">
-          <div class="sidebar-content col-xs-12">
+          <div class="sidebar-content">
             <nav>
               <div class="sidebar__header sidebar__item"><a href="/"><img src="img/fs-tags.png" title="前端收藏夹" class="sidebar__header-logo">
                   <h1 class="sidebar__header-title">前端收藏夹</h1></a></div>
@@ -58,14 +58,15 @@
                 </ul>
               </div>
               <p>本站点用于收集前端工具，收录优秀文章，欢迎补充！</p>
-              <div><iframe src="https://ghbtns.com/github-btn.html?user=w3ctrain&repo=w3ctrain.github.io&type=star" frameborder="0" scrolling="0"  height="20px" style="display:block;"></iframe>
+              <div><iframe src="https://ghbtns.com/github-btn.html?user=w3ctrain&repo=w3ctrain.github.io&type=star&count=true" frameborder="0" scrolling="0"  height="20px" style='display:inline-block'></iframe>
+                <iframe src="https://ghbtns.com/github-btn.html?user=w3ctrain&repo=w3ctrain.github.io&type=fork&count=true" frameborder="0" scrolling="0"  height="20px" style='display:inline-block'></iframe>
               </div><br>
             </nav>
           </div>
         </div>
       </aside>
       <div id="main-content" class="main-content clearfix">
-        <div class="col-xs-12">
+        <div>
           <article class="article">
             <section class="section">
                   <h3 id="tool" class="section__header">前端工具</h3>
@@ -150,6 +151,8 @@
                 </dl>
                 <dl class="links-list">
                       <dt class="links-title arrow-box">其它</dt>
+                      <dd class="links-item"><a href="http://www.cssstats.com/" title="css规范分析" target="_blank" class="tooltip">CSSStats</a>
+                      </dd>
                       <dd class="links-item"><a href="http://spritegen.website-performance.org/" title="在线拼接精灵图片的工具" target="_blank" class="tooltip">spritegen</a>
                       </dd>
                       <dd class="links-item"><a href="http://placehold.it/" target="_blank" class="tooltip">placehold.it</a>
@@ -515,11 +518,15 @@
                       </dd>
                       <dd class="links-item"><a href="http://meizi.io/" title="中国首个开源 HTML5 跨屏前端框架" target="_blank" class="tooltip">妹子 UI</a>
                       </dd>
+                      <dd class="links-item"><a href="http://aliceui.org/" target="_blank" class="tooltip">Alice</a>
+                      </dd>
                       <dd class="links-item"><a href="https://github.com/Dogfalo/materialize" target="_blank" class="tooltip">materialize</a>
                       </dd>
                       <dd class="links-item"><a href="https://github.com/vuejs/vue" target="_blank" class="tooltip">vue</a>
                       </dd>
                       <dd class="links-item"><a href="https://github.com/google/material-design-lite" target="_blank" class="tooltip">material-design-lite</a>
+                      </dd>
+                      <dd class="links-item"><a href="https://html5boilerplate.com/" target="_blank" class="tooltip">Html5Boilerplate</a>
                       </dd>
                 </dl>
                 <dl class="links-list">
@@ -629,6 +636,8 @@
                       <dt class="links-title arrow-box">手册/规范</dt>
                       <dd class="links-item"><a href="https://dwqs.gitbooks.io/frontenddevhandbook/content/index.html" target="_blank" class="tooltip">前端开发者手册</a>
                       </dd>
+                      <dd class="links-item"><a href="https://li-xinyang.gitbooks.io/frontend-notebook/content/index.html" target="_blank" class="tooltip">前端开发笔记本</a>
+                      </dd>
                       <dd class="links-item"><a href="http://cssguidelin.es/" target="_blank" class="tooltip">CSS规范</a>
                       </dd>
                       <dd class="links-item"><a href="https://github.com/airbnb/javascript" target="_blank" class="tooltip">JavaScript Style Guide</a>
@@ -659,6 +668,13 @@
                       <dd class="links-item"><a href="http://www.uisdc.com/" target="_blank" class="tooltip">优设网</a>
                       </dd>
                       <dd class="links-item"><a href="http://www.shejidaren.com/" target="_blank" class="tooltip">设计达人</a>
+                      </dd>
+                      <dd class="links-item"><a href="http://www.photoshoplady.com/" target="_blank" class="tooltip">PhotoshopLady</a>
+                      </dd>
+                </dl>
+                <dl class="links-list">
+                      <dt class="links-title arrow-box">学点设计</dt>
+                      <dd class="links-item"><a href="http://design.tutsplus.com/" target="_blank" class="tooltip">TutsplusDesign</a>
                       </dd>
                 </dl>
                 <dl class="links-list">
@@ -692,12 +708,26 @@
               </div>
             </section>
           </article>
+          <!-- 多说开始-->
+          <div data-thread-key="2015/11/08/font-end-favorite/" data-title="前端收藏夹" data-url="http://w3ctrain.com/2015/11/08/font-end-favorite/" data-author-key="1" id="ds-thread" class="ds-thread"></div>
         </div>
       </div>
     </article>
     <script src="js/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/jquery-sticky-kit.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/jquery.tooltipster.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+      var duoshuoQuery = {short_name:"w3ctrain"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      
+    </script>
     <script>
       $(window).load(function(){
         // $("#sticker").sticky({ topSpacing: 0,responsiveWidth: true });
@@ -712,6 +742,7 @@
       $(function() {
           var configModule = {
             scrollTopTime: 250,
+            mobileWidth: 768
           };
       
           $(".tooltip").tooltipster({
@@ -743,7 +774,10 @@
                       });
                   }
               }
-              $("#open-sidebar").click();
+              var winWidth = $( window ).width();
+              if (winWidth < configModule.mobileWidth) {
+                $("#open-sidebar").click();
+              }
           });
           $("#open-sidebar").on("click", function() {
             $(this).toggleClass('open');
