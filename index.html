@@ -1485,5 +1485,88 @@
       </div>
     </div>
   </article>
-  <script src="js/main.min.js"></script>
+  <script src="js/vendors.min.js"></script>
+  <script>
+    $(window).load(function()
+    {
+      // $("#sticker").sticky({ topSpacing: 0,responsiveWidth: true });
+      //- $("#sticker").stick_in_parent();
+      $("#sidebar").on("scroll", function(event)
+      {
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
+      });
+    });
+    $(function()
+    {
+      var configModule = {
+        scrollTopTime: 250,
+        mobileWidth: 768
+      };
+      $(".tooltip").tooltipster(
+      {
+        animation: "fade",
+        delay: 200,
+        touchDevices: false,
+        trigger: "hover",
+        position: "bottom",
+        'maxWidth': 300
+      });
+      $("#sidebar-nav").on("click", "li", function(event)
+      {
+        event.preventDefault();
+        /* Act on the event */
+        $this = $(this);
+        $this.siblings().removeClass("active");
+        $this.addClass("active");
+        var index = $this.attr("data-index");
+        if (typeof index == "string")
+        {
+          var $ele = $("#" + index);
+          if ($ele.length)
+          {
+            $("#main-content").animate(
+            {
+              scrollTop: $ele.position().top + 6
+            }, configModule.scrollTopTime, function()
+            {
+              //- history.pushState({index: index}, "", "#" + index);
+            });
+          }
+        }
+        var winWidth = $(window).width();
+        if (winWidth < configModule.mobileWidth)
+        {
+          $("#open-sidebar").click();
+        }
+      });
+      $("#open-sidebar").on("click", function()
+      {
+        $(this).toggleClass('open');
+        $('body').toggleClass('sidebar-open');
+      });
+      $('.author-meta').on("mouseenter", function()
+      {
+        $(this).addClass('hover');
+      }).on("mouseleave", function()
+      {
+        $(this).removeClass('hover');
+      })
+    });
+  </script>
+  <script>
+    var duoshuoQuery = {
+      short_name: "w3ctrain"
+    };
+    (function()
+    {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';
+      ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 </body>
