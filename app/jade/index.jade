@@ -1,0 +1,740 @@
+- var ctribLink = "http://www.w3ctrain.com/contribute/";
+- var navItems={"tool": "前端工具","blog": "博客/社区/资讯","plugins": "各类插件","public": "微博/公众号","frame": "主流框架","books": "手册/书籍","design": "设计/交互", "other": "其他链接"};
+- var qrcodePath = "img/qrcode/";
+
+mixin listTitle(id)
+  if navItems[id] != "undefined"
+    h3(class="section__header" id= id)= navItems[id]
+  else
+    h3(class="section__header") id
+
+mixin dda(url, name, title)
+  if typeof(title) !== 'undefined'
+    a(class="tooltip" href=url title=title  target="_blank")= name
+  else
+    a(href=url  target="_blank")= name
+
+mixin dd(url, name, title, type)
+  - if(title == 0) {
+  -  title=undefined
+  - }
+  case type
+    when 10086
+      dd.links-item.new
+        +dda(url, name, title)
+    when 10087
+      dd.links-item.hot
+        +dda(url, name, title)
+    default
+      dd.links-item
+        +dda(url, name, title)
+
+mixin dt(name)
+  dt.links-title.arrow-box= name
+
+mixin qrcode(img, name)
+  dd.links-item.qrcode-link
+    a= name
+    img(src=qrcodePath + img)
+
+
+mixin book(url, name, title)
+  dd.links-item
+    if typeof(title) !== 'undefined'
+      a(class="tooltip" href=url title=title  target="_blank") 《#{name}》
+    else
+      a(href=url  target="_blank") 《#{name}》
+
+mixin contrib()
+  dd.links-item
+    a(class="tooltip" href= ctribLink title="你可以先在这里提交" target="_blank")= '+'
+
+
+doctype html
+html(lang="zh-CN")
+  head
+    meta(http-equiv="Content-Type" content="text/html;charset=UTF-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui")
+    title 前端收藏夹
+    meta(property="og:url" content="http://www.w3ctrain.com")
+    meta(property="og:site_name" content="w3ctrain")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style" content="black")
+    meta(name="description" content="前端收藏夹，为你提供全面的学习资源。")
+    meta(name="keywords" content="w3ctrain,前端,收藏夹")
+    link(rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon")
+    <!-- build:css css/main.min.css -->
+    link(rel="stylesheet" href="css/favorites.css")
+    <!-- endbuild -->
+    script.
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?36b6d388c1cd16388dc7841302a00312";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+body
+  
+  a(href="https://github.com/w3ctrain/w3ctrain.github.io" id='fork-me-on-github')
+    img(style="position: absolute; top: 0; right: 0; border: 0; z-index: 1; width: 160px;" src="img/forkme.png" alt="Fork me on GitHub")
+
+  article.fullheight.w3ctrain
+      .hamburger-wrapper#open-sidebar
+          div.hamburger-arrow
+            .before
+            .after
+      div.add-link-wrapper
+        a(class='add-link' target="_blank" href="http://www.w3ctrain.com/contribute/") 贡献链接
+      aside.sidebar#sidebar
+        div.clearfix#sticker
+          div.sidebar-content
+            nav
+              div.sidebar__header.sidebar__item
+                a(href="/")
+                  img(class="sidebar__header-logo" src="img/fs-tags.png" title="前端收藏夹")
+                  h1(class="sidebar__header-title") 前端收藏夹
+              ul.sidebar__nav#sidebar-nav
+                each val, index in navItems
+                  if index == "tool"
+                    li.active(data-index=index)
+                      a(href="")= val
+                  else 
+                    li(data-index=index)
+                      a(href="")= val
+              div.author-meta.text-center
+                div.flipper
+                  a(href="http://weibo.com/joueu"  title="Hello! 我是周晓楷")
+                    img(src="img/avatar.png" class="avatar front")
+                    img(src="img/helkyle.jpg" alt="我是周晓楷" class="avatar back")
+                br
+                p.author-desc 我是周晓楷，华南师范大学大四学生，你可以通过下列方式找到我。
+                button(class="btn btn-outline__radius hover-me" href="http://weibo.com/joueu") Hover Me!
+                ul.icon-wrapper.text-center.animated
+                  li
+                    a.icon.codepen(title="codepen" href="http://codepen.io/HelKyle/" target="_blank")
+                  li
+                    a.icon.weibo(title="微博" href="http://weibo.com/joueu" target="_blank")
+                  li
+                    a.icon.github(title="github" href="https://github.com/helkyle" target="_blank")
+              p 本站点用于收集前端工具，收录优秀文章，欢迎补充！
+              div
+                iframe(src="https://ghbtns.com/github-btn.html?user=w3ctrain&repo=w3ctrain.github.io&type=star&count=true" frameborder="0" scrolling="0"  height="20px" style='display:inline-block')
+                iframe(src="https://ghbtns.com/github-btn.html?user=w3ctrain&repo=w3ctrain.github.io&type=fork&count=true" frameborder="0" scrolling="0"  height="20px" style='display:inline-block')
+              br
+      div(class="main-content clearfix" id="main-content")
+        div
+          article.article
+            section.section
+              +listTitle("tool")
+              div.section__content
+                dl.links-list
+                  +dt("自动化")
+                  +dd("http://gulpjs.com/", "Gulp", 0, 10087)
+                  +dd("http://gruntjs.com/", "Grunt")
+                  +dd("http://fis.baidu.com/", "百度Fis")
+                  +dd("http://ant.apache.org/", "Ant")
+                  +dd("http://yeoman.io/", "Yeoman")
+                  +dd("https://incident57.com/codekit/", "Codekit")
+                  +dd("https://github.com/oklai/koala", "Koala")
+                  +dd("https://webpack.github.io/", "Webpack", 0, 10086)
+                dl.links-list
+                  +dt("预编译")
+                  +dd("https://github.com/slim-template/slim", "Slim")
+                  +dd("https://github.com/haml/haml","Haml")
+                  +dd("https://github.com/jashkenas/coffeescript","Coffeescript",0, 10087)
+                  +dd("http://sass-lang.com/","Sass", 0,  10087)
+                  +dd("https://babeljs.io/", "BabelJs", 0, 10086)
+                  +dd("https://github.com/jadejs/jade","Jade")
+                  +dd("http://lesscss.org/", "Less")
+                  +dd("https://github.com/stylus/stylus", "Stylus")
+                  +dd("http://pleeease.io/","Pleeease")
+
+                dl.links-list
+                  +dt("查找工具")
+                  +dd("http://csstriggers.com/","CssTriggers", 0, 10086)
+                  +dd("http://screensiz.es/phone", "screensiz.es")
+                  +dd("http://www.umindex.com/devices/android_resolutions", "友盟指数")
+                  +dd("http://www.javascripting.com/", "javascripting")
+                  +dd("http://builtwith.com/", "builtwith")
+                  +dd("http://thetoolbox.cc/", "thetoolbox", "A collection of the best time-saving apps, tools, and widgets from around the web.")
+                  +dd("https://stylesheets.co/", "stylesheets")
+                dl.links-list
+                  +dt("版本控制")
+                  +dd("http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000", "廖雪峰的git教程")
+                  +dd("http://tortoisesvn.net/index.zh.html", "svn教程")
+                  +dd("https://github.com","Github",0 , 10087)
+                  +dd("https://about.gitlab.com/", "GitLab")
+                  +dd("https://bitbucket.org/", "Bitbucket")
+                  +dd("https://www.sourcetreeapp.com/","Sourcetree")
+                  +dd("https://www.zennaware.com/cornerstone/index.php","Cornerstone")
+                  +dd("http://book.douban.com/subject/4813786/", "版本控制之道")
+                  +dd("http://iissnan.com/progit/", "ProGit")
+                dl.links-list
+                  +dt("编辑器")
+                  +dd("http://www.sublimetext.com/", "Sublime Text",0 , 10087)
+                  +dd("https://atom.io/", "Atom")
+                  +dd("http://www.dcloud.io/index.html", "HBuilder")
+                  +dd("http://www.adobe.com/cn/products/dreamweaver.html", "Dreamweaver")
+                  +dd("https://www.jetbrains.com/webstorm/","WebStorm", " WebStorm 是jetbrains公司旗下一款JavaScript 开发工具。被广大中国JS开发者誉为“Web前端开发神器”、“最强大的HTML5编辑器”、“最智能的JavaScript IDE”等。与IntelliJ IDEA同源，继承了IntelliJ IDEA强大的JS部分的功能。 ")
+                  +dd("http://macdown.uranusjr.com/", "MacDown")
+                  +dd("http://www.ultraedit.com/", 'UltraEdit')
+                  +dd("https://github.com/ajaxorg/ace","ace" , 0, 10086)
+                dl.links-list
+                  +dt("在线编辑")
+                  +dd("http://jsfiddle.net/", "Jsfiddle")
+                  +dd("http://codepen.io/", "Codepen",0 , 10087)
+                  +dd("http://jsbin.com", "Jsbin")
+                  +dd("http://runjs.cn/", "Runjs")
+                dl.links-list
+                  +dt("调试/测试")
+                  +dd("http://getfirebug.com/", "Firebug")
+                  +dd("http://developer.yahoo.com/yslow/", "YSlow")
+                  +dd("http://www.microsoft.com/en-us/download/details.aspx?id=18359", "IEDeveloperToolbar")
+                  +dd("http://www.fiddler2.com/fiddler2/", "Fiddler")
+                  +dd("https://developer.chrome.com/devtools", "ChromeDevTools")
+                  +dd("http://www.jslint.com/", "JSLint")
+                  +dd("http://www.jshint.com/", "JSHint")
+                  +dd("http://csslint.net/", "CSSLint")
+                  +dd("https://validator.whatwg.org/", "HTML Validators")
+                  +dd("http://unitjs.com/", "UnitJS")
+                  +dd("http://jasmine.github.io/", "Jasmine")
+                  +dd("http://www.browserstack.com/", "BrowserStack")
+                  +dd("https://github.com/airportyh/testem", "Testem", "让写js的单元测试变得有趣")
+                  +dd("https://github.com/dalekjs", "Dalekjs", "跨浏览器测试js工具" )
+                  +dd("https://github.com/beatfactor/nightwatch", "NightWatch", "测试框架")
+                  +dd("https://github.com/thingsinjars/Hardy", "Hardy", "CSS测试")
+                dl.links-list
+                  +dt("部署流程")
+                  +dd("http://developer.yahoo.com/yui/compressor/", "YUI Compressor")
+                  +dd("https://github.com/mishoo/UglifyJS", "UglifyJs")
+                  +dd("https://github.com/GoalSmashers/clean-css", "CleanCss")
+                  +dd("https://github.com/jsdoc3/jsdoc", "JSDoc")
+
+                dl.links-list
+                  +dt("高效工具")
+                  +dd("https://kapeli.com/dash", "Dash", "Dash gives your Mac instant offline access to 150+ API documentation sets.")
+                  +dd("https://www.wunderlist.com/zh/", "奇妙清单")
+                  +dd("https://www.omnigroup.com/omnigraffle/", "Omnigraffle")
+                dl.links-list
+                  +dt("其它")
+                  +dd("http://anvilformac.com/", "anvil", "本地搭建轻量级服务器")
+                  +dd("https://github.com/wagerfield/cssmixins", "cssmixins", " CSS3一些兼容性的mixin：方式是在一些CSS3的属性或值前加浏览器前缀。支持 STYL, SCSS, SASS 和 LESS")
+                  +dd("https://github.com/typicode/json-server","JSON Server", "分分钟搭一个返回JSON格式REST API的测试服务器")
+                  +dd("https://ngrok.com/", "ngrok")
+                  +dd("https://glyphter.com/", "Glyphter", "在线SVG资源")
+                  +dd("http://www.cssstats.com/", "CSSStats","css规范分析")
+                  +dd("http://spritegen.website-performance.org/", "spritegen", "在线拼接精灵图片的工具")
+                  +dd("http://placehold.it/", "placehold.it")
+                  +dd("http://zh.mweb.im/", "MWeb")
+                  +dd("http://www.browsersync.io/", "browsersync.io")
+                  +dd("http://www.kjson.com/", "kjson.com")
+                  +dd("http://strut.io/editor/index.html", "strut.io", "ppt效果的页面，在线生成工具")
+                  +dd("https://github.com/hakimel/reveal.js", "Reveal.js", "PPT效果")
+                  +dd("https://iconverticons.com/online/", "iconverticons.com")
+                  +dd("http://zhitu.isux.us/", "智图", "腾讯出的在线智能压缩图片工具")
+                  +dd("http://sandbox.juan-i.com/longshadows/", "longshadows")
+                  +dd("http://cubic-bezier.com/", "cubic-bezier")
+                  +dd("http://browserhacks.com/", "browserhacks")
+                  +dd("http://tool.oschina.net/commons", "tool.oschina.net")
+                  +dd("https://developers.google.com/speed/pagespeed/insights/", "Pagespeed")
+                  +dd("https://icomoon.io", "icomoon.io")
+                  +dd("http://sarasoueidan.com/tools/circulus/", 'circulus')
+
+            section.section
+              +listTitle("blog")
+              div.section__content
+                dl.links-list
+                  +dt("国内综合")
+                  +dd("http://www.w3ctech.com/", "w3ctech")
+                  +dd("http://www.w3cplus.com/", "w3cplus",0 , 10087)
+                  +dd("http://www.w3cfuns.com/", "w3cfuns")
+                  +dd("http://www.html-js.com/", "前端乱炖")
+                  +dd("http://www.qianduan.net/", "前端观察")
+                  +dd("http://segmentfault.com/", "segmentfault")
+                  +dd("http://www.html5tricks.com/", "html5tricks")
+                  +dd("http://isux.tencent.com/", "腾讯ISUX")
+                  +dd("http://efe.baidu.com/", "百度EFE")
+                  +dd("http://www.75team.com/", "奇舞团")
+                  +dd("http://ued.taobao.org/blog/", "淘宝UED")
+                  +dd("http://www.yyyweb.com/", "前端里")
+                  +dd("http://div.io", "div.io", "高质量前端资源汇聚")
+                  +dd("http://www.imooc.com/", "慕课网")
+                  +dd("https://www.codecademy.com/zh/", "Codecademy","以交互的方式学习编程，免费的哦。")
+                  +dd("http://www.gbtags.com", "极客标签")
+                  +dd("http://www.infoq.com/cn", "InfoQ中国")
+                  +dd("http://www.css88.com/", "WEB前端开发")
+                  
+                dl.links-list
+                  +dt("国外综合")
+                  +dd("http://tutsplus.com/","tutsplus")
+                  +dd("https://cssanimation.rocks/","CSSAnimation")
+                  +dd("https://teamtreehouse.com","TeamTreehouse")
+                  +dd("http://www.smashingmagazine.com/", "SmashingMagazine")
+                  +dd("https://codyhouse.co", "CodyHouse")
+                  +dd("http://www.echojs.com/", "Echojs")
+                  +dd("https://www.codeschool.com/","Codeschool")
+                  +dd("http://www.html5rocks.com/","Html5Rocks")
+                  +dd("https://speakerdeck.com/", "SpeakerDeck")
+                  +dd("http://alistapart.com/", "Alistapart")
+                  +dd("https://ponyfoo.com/", "Ponyfoo.com", 0, 10086)
+                dl.links-list
+                  +dt("前端资讯")
+                  +dd("https://css-tricks.com/", "CSS-Tricks", 0, 10087)
+                  +dd("http://www.webdesignernews.com/", "WebDesignerNews")
+                  +dd("http://frontendfront.com/", "FrontEndFont")
+                  +dd("http://sidebar.io/", "Sidebar.io")
+                  +dd("https://www.designernews.co/", "DesignerNews")
+                dl.links-list
+                  +dt("问答社区")
+                  +dd("http://stackoverflow.com/", "StackOverflow", 0, 10087)
+                  +dd("https://www.quora.com/", "Quora")
+                  +dd("http://www.zhihu.com/", "知乎")
+
+                dl.links-list
+                  +dt("前端大牛")
+                  +dd("http://hugogiraudel.com/", "Hugo Giraudel")
+                  +dd("http://philipwalton.com/", "Philip Walton")
+                  +dd("https://davidwalsh.name/","David Walsh")
+                  +dd("http://sarasoueidan.com/", "Sara Soueidan")
+                  +dd("http://www.paulirish.com/", "Paul Irish")
+                  +dd("http://www.liaoxuefeng.com/", "廖雪峰")
+                  +dd("http://www.ruanyifeng.com/blog/", "阮一峰")
+                  +dd("http://jiongks.name/", "勾三股四")
+                  +dd("http://www.zhangxinxu.com/wordpress/", "张鑫旭")
+                  +dd("http://yuguo.us/weblog/", "余果")
+                  +dd("http://sofi.sh/", "Sofish")
+                  +dd("https://github.com/aui", "糖饼")
+                  +dd("http://evanyou.me/", "Evan You")
+                  +dd("http://www.cnblogs.com/Darren_code/", "Darren_聂微东")
+                  +dd("http://www.cnblogs.com/rubylouvre/", "司徒正美")
+                dl.links-list
+                  +dt("博客")
+                  +dd("http://f2e.souche.com/blog/", "大搜车前端")
+                  +dd("http://yalishizhude.github.io", "亚里士朱德")
+                  +contrib()
+            section.section
+              +listTitle("plugins")
+              div.section__content
+
+                dl.links-list
+                  +dt("滑动/视差")
+
+                  +dd("https://github.com/alvarotrigo/fullPage.js", "fullPage", 0, 10087)
+                  +dd("http://www.idangero.us/swiper/#.VjdI0a4rKRs", "swiper")
+                  +dd("http://kenwheeler.github.io/slick/", "Slick", "the last carousel you'll ever need")
+                  +dd("http://slidesjs.com/", "sliderjs")
+                  +dd("https://github.com/hammerjs/hammer.js", "hammer.js", "A javascript library for multi-touch gestures")
+                  +dd("https://github.com/idiot/unslider","unslider")
+                  +dd("https://github.com/johnpolacek/superscrollorama", "Superscrollorama", "很酷的动画效果")
+                  +dd("https://github.com/janpaepke/ScrollMagic", "ScrollMagic")
+                  +dd("https://github.com/matthieua/WOW", "WOW")
+                  +dd("http://prinzhorn.github.io/skrollr/", "skrollr")
+                  +dd("https://github.com/markdalgleish/stellar.js", "stellar.js")
+                  +dd("https://github.com/alvarotrigo/multiscroll.js", "multiscroll.js")
+                  +dd("https://github.com/cubiq/iscroll", "iscroll")
+                  +dd("https://github.com/bevacqua/dragula", "dragula","Drag and drop so simple it hurts")
+
+                dl.links-list
+                  +dt("动画/效果")
+                  +dd("https://github.com/Popmotion/popmotion", "popmotion")
+                  +dd("https://github.com/julianshapiro/velocity", "velocity")
+                  +dd("https://github.com/greensock/GreenSock-JS", "GreenSock-JS")
+                  +dd("http://snapsvg.io/", "Snapsvg")
+                  +dd("http://soulwire.github.io/sketch.js/","sketch.js", 0,10086)
+                  +dd("https://github.com/impress/impress.js", "impress", "各种炫的效果，用来做幻灯片不错")
+                  +dd("https://github.com/garand/sticky", "sticky")
+                  +dd("https://github.com/rstacruz/nprogress", "nprogress")
+                  +dd("https://github.com/legomushroom/mojs", "Mojs")
+                  +dd("https://github.com/Prinzhorn/skrollr", "skrollr")
+                  +dd("https://github.com/mattboldt/typed.js", "typed.js")
+                  +dd("https://github.com/h5bp/Effeckt.css", "Effeckt.css")
+                  +dd("http://ianlunn.github.io/Hover/", "Hover.css")
+                  +dd("http://leaverou.github.io/animatable/", "Animatable")
+                  +dd("https://daneden.github.io/animate.css/", "Animate.css", "像喝水一样使用css动画")
+                  +dd("http://www.justinaguilar.com/animations/index.html", "CSS3 Animation Cheat Sheet", "流畅的CSS动画")
+                  +dd("https://github.com/alvarotrigo/pagePiling.js", "pagePiling.js")
+                  +dd("https://github.com/WickyNilliams/headroom.js", "headroom.js")
+                  +dd("https://github.com/chinchang/hint.css", "hint.css", "A tooltip library in CSS for your lovely websites.")
+                  +dd("https://github.com/tobiasahlin/SpinKit", "SpinKit", "A collection of loading indicators animated with CSS")
+                  +dd("https://github.com/codrops/CircularProgressButton", "CircularProgressButton")
+                  +dd("https://github.com/lukehaas/css-loaders", "css-loaders")
+                  +dd("https://github.com/HubSpot/pace", "pace")
+                  +dd("https://github.com/jonobr1/two.js", "two.js","A renderer agnostic two-dimensional drawing api for the web.")
+                  +dd("https://github.com/IanLunn/Sequence", "Sequence", "The responsive CSS animation framework for creating unique sliders, presentations, banners, and other step-based applications.")
+                  +dd("https://github.com/codrops/ElasticProgress", "ElasticProgress")
+                  +dd("http://una.im/CSSgram/", "CSSgram", "A tiny (<1kb gzipped!) library for recreating Instagram filters with CSS filters and blend modes.", 10086)
+
+
+                dl.links-list
+                  +dt("兼容")
+                  +dd("https://github.com/Modernizr/Modernizr","Modernizr","Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.")
+                  +dd("https://github.com/ded/bowser","bowser","a browser detector")
+                  +dd("https://github.com/imulus/retinajs", "retinajs")
+                  +dd("https://github.com/scottjehl/picturefill", "picturefill")
+                  +dd("https://github.com/necolas/normalize.css", "Normalize.css")
+                  +dd("https://github.com/scottjehl/Respond", "Respond", " 让浏览器支持 CSS3： min/max-width")
+                  +dd("https://github.com/aFarkas/html5shiv", "html5shiv")
+                  +dd("https://github.com/Schepp/box-sizing-polyfill", "box-sizing-polyfill", "让ie6/7支持 CSS box-sizing: border-box")
+                dl.links-list
+                  +dt("Chrome")
+                  +dd("https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn", "clear-cache")
+                  +dd("http://www.editthiscookie.com/", "EditThisCookie", "编辑cookie利器")
+                  +dd("https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl", "Full Page Screen Capture")
+                  +dd("https://chrome.google.com/webstore/detail/html5-outliner/afoibpobokebhgfnknfndkgemglggomo" ,"HTML5 Outliner")
+                  +dd("https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc","JSONView")
+                  +dd("https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop","Postman")
+                  +dd("https://chrome.google.com/webstore/detail/user-agent-switcher-for-c/djflhoibgkdhkhhcedjiklpkjnoahfmg","User-Agent Switcher for Chrome")
+                  +dd("https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh","Window Resizer")
+                  +dd("https://chrome.google.com/webstore/detail/auto-refresh-page/edbmfligbmlgmfbbhoamolndhjffanka","页面自动刷新")
+                  +dd("https://chrome.google.com/webstore/detail/chrome-sniffer-plus/fhhdlnnepfjhlhilgmeepgkhjmhhhjkh?hl=zh-CN","Chrome Sniffer Plus", "探测当前网页正在使用的开源软件或者js类库", 10086)
+
+
+                dl.links-list
+                  +dt("其他")
+                  +dd("https://github.com/janl/mustache.js/", "Mustache", "JavaScript模板工具")
+                  +dd("https://github.com/aui/artTemplate","artTemplate")
+                  +dd("https://github.com/dropbox/zxcvbn","zxcvbn")
+                  +dd("http://jqueryvalidation.org/", "Validation", "表单验证插件")
+                  +dd("https://github.com/moment/moment", "moment")
+                  +dd("https://github.com/primer/primer", "primer", "The base coat of GitHub. Our internal CSS toolkit and guidelines.")
+                  +dd("http://www.checkman.io/please/", "Please.js", "创建随机的颜色")
+                  +dd("https://github.com/davidshimjs/qrcodejs", "qrcode")
+                  +dd("https://github.com/michaelvillar/dynamics.js", "dynamics.js")
+                  +dd("https://github.com/jwagner/smartcrop.js", "smartcrop.js")
+                  +dd("https://github.com/tuupola/jquery_lazyload", "lazyload")
+                  +dd("https://github.com/desandro/imagesloaded", "imagesloaded")
+                  +dd("https://github.com/luis-almeida/unveil", "unveil")
+                  +dd("https://github.com/ftlabs/fastclick", "fastclick")
+                  +dd("https://github.com/malsup/form", "jQuery Form Plugin")
+                  +dd("https://github.com/blueimp/jQuery-File-Upload", "jQuery-File-Upload")
+                  +dd("https://github.com/t4t5/sweetalert", "sweetalert")
+                  +dd("https://github.com/paulkinzett/toolbar", "toolbar")
+                  +dd("https://github.com/iamceege/tooltipster", "tooltipster")
+                  +dd("https://github.com/videojs/video.js", "video.js")
+                  +dd("https://github.com/FortAwesome/Font-Awesome", "Font-Awesome")
+                  +dd("https://github.com/henriquea/minigrid", "minigrid")
+
+            section.section
+              +listTitle("public")
+              div.section__content
+                dl.links-list
+                  +dt("前端微博")
+                  +dd("http://weibo.com/fouber", "前端农民工")
+                  +dd("http://weibo.com/cssmagic", "CSS魔法")
+                  +dd("weibo.com/sharpmaster", "民工精髓V")
+                  +dd("http://weibo.com/zhangxinxu", "张鑫旭")
+                  +dd("http://weibo.com/173248656", "小胡子哥")
+                  +dd("http://weibo.com/arttechdesign", "尤小右")
+                  +dd("http://weibo.com/fekb", "前端快爆")
+                  +dd("http://weibo.com/w3cfuns", "w3cfuns")
+                  +dd("http://weibo.com/htmljs", "前端乱炖")
+                  +dd("http://weibo.com/baidujs", "JS小组")
+                  +dd("http://weibo.com/p/1005051397442732", "一丝")
+                  +dd("http://weibo.com/p/1005051196343093", "寒冬winter")
+                  +dd("http://weibo.com/p/1005051712131295", "勾三股四")
+                  +dd("http://weibo.com/p/1006062717844351", "HTML5梦工场")
+                  +contrib()
+                dl.links-list
+                  +dt("日报/周刊")
+                  +dd("http://feweekly.com/issues", "前端周刊")
+                  +dd("http://weekly.manong.io/", "码农周刊")
+                  +dd("http://html5weekly.com/", "html5weekly")
+                  +dd("http://javascriptweekly.com/", "javascriptweekly")
+                  +dd("http://nodeweekly.com/", "nodeweekly")
+                  +dd("http://responsivedesignweekly.com/", "responsivedesignweekly")
+                  +dd("http://webtoolsweekly.com/", "webtoolsweekly")
+                  +dd("http://www.75team.com/weekly/", "奇舞周刊")
+                dl.links-list
+                  +dt("公众号")
+                  +qrcode("w3ctech.jpg", "w3ctech")
+                  +qrcode("w3cplus.jpg", "w3cplus")
+                  +qrcode("htmljs.jpg", "前端乱炖")
+                  +qrcode("fezaoduke.jpg", "前端早读课")
+                  
+            section.section
+              +listTitle("frame")
+              div.section__content
+                dl.links-list
+                  +dt("综合")
+                  +dd("http://getbootstrap.com/", "Bootstrap")
+                  +dd("http://foundation.zurb.com/", "Foundation")
+                  +dd("http://semantic-ui.com/", "SemanticUI")
+                  +dd("http://purecss.io/", "Purecss")
+                  +dd("http://getuikit.com/", "UIKit")
+                  +dd("http://meizi.io/", "妹子 UI", "中国首个开源 HTML5 跨屏前端框架")
+                  +dd("http://aliceui.org/", "Alice")
+                  +dd("https://github.com/Dogfalo/materialize", "materialize")
+                  +dd("https://github.com/vuejs/vue", "vue")
+                  +dd("https://github.com/google/material-design-lite", "material-design-lite")
+                  +dd("https://html5boilerplate.com/", "Html5Boilerplate")
+                  +dd("https://www.google.com/design/spec/material-design/introduction.html#", "Material design", 0, 10086)
+                  +dd("https://www.lightningdesignsystem.com/", "Lightning Design System", 0, 10086)
+                dl.links-list
+                  +dt("JavaScript")
+                  +dd("http://jquery.com/", "JQuery")
+                  +dd("https://angularjs.org/", "AngularJS")
+                  +dd("http://vuejs.org/guide/", "Vue.js")
+                  +dd("http://backbonejs.org/", "Backbone")
+                  +dd("http://prototypejs.org/", "prototypejs")
+                  +dd("http://emberjs.com/", "emberjs")
+                  +dd("http://mootools.net/", "MooTools")
+                  +dd("http://dojotoolkit.org/", "Dojo")
+                  +dd("https://www.meteor.com/", "meteor")
+                  +dd("https://github.com/jrburke/requirejs", "requirejs")
+                  +dd("https://github.com/madrobby/zepto", "Zepto")
+                  +dd("https://github.com/RubyLouvre/avalon", "Avalon")
+                  +dd("https://github.com/knockout/knockout","knockout")
+                  +dd("https://github.com/taijiweb/domcom", "Domcom", "Domcom是一个提供DOM部件的web框架，功能与ReactJS类似，但是具有一些不同的特点。 Domcom整体特性 Domcom是DOM和Component合并后的缩写，宗旨是为开发Web应用提供DOM部件。通过Domcom，可以整体上改善数据管理，尽可能减少不必要的DOM操作，提升程序运行效率。")
+                dl.links-list
+                  +dt("Hybrid")
+                  +dd("http://facebook.github.io/react-native/","React-Native")
+                  +dd("https://www.nativescript.org/","Nativescript")
+                  +dd("http://phonegap.com/","Phonegap")
+                  +dd("http://ionicframework.com/","Ionic")
+                  +dd("https://crosswalk-project.org/","Crosswalk")
+                  +dd("https://github.com/meteor/meteor", "Meteor")
+                  +dd("https://github.com/atom/electron", "Electron")
+                dl.links-list
+                  +dt("游戏")
+                  +dd("https://www.scirra.com/", "Construct 2")
+                  +dd("http://impactjs.com/", "ImpactJS")
+                  +dd("http://createjs.com/", "CreateJS")
+                  +dd("http://threejs.org/", "Three.js")
+                  +dd("https://playcanvas.com/", "PlayCanvas")
+                  +dd("https://github.com/pixijs/pixi.js", "Pixi")
+
+
+            section.section
+              +listTitle("books")
+              div.section__content
+                dl.links-list
+                  +dt("书籍")
+                  +book("https://book.douban.com/subject/10546125/", "JavaScript高级程序设计（第3版）")
+                  +book("http://www.amazon.cn/gp/product/B00NN8GJGA", "单页Web应用:JavaScript从前端到后端")
+                  +book("http://book.douban.com/subject/3590768/", "JavaScript语言精粹")
+                  +book("http://book.douban.com/subject/6038371/", "JavaScript DOM编程艺术 （第2版）")
+                  +book("http://book.douban.com/subject/21792530/", "编写可维护的JavaScript")
+                  +book("http://book.douban.com/subject/26598045/", "Web全栈工程师的自我修养")
+                  +book("http://book.douban.com/subject/25768396/", "深入浅出Node.js")
+                  +book("http://book.douban.com/subject/20390374/", "响应式Web设计")
+                  +book("http://book.douban.com/subject/4736167/", "精通CSS")
+                  +book("http://book.douban.com/subject/5362856/", "高性能JavaScript")
+                  +book("https://github.com/getify/You-Dont-Know-JS", "You-Dont-Know-JS")
+                dl.links-list
+                  +dt("快速入门")
+                  +dd("http://zh.learnlayout.com/index.html", "学习CSS布局")
+                  +dd("http://learn.shayhowe.com/html-css/", "Learn to Code HTML & CSS")
+                  +dd("http://learn.shayhowe.com/advanced-html-css/", "Learn to Code Advanced"
+                    + "HTML & CSS")
+                  +dd("http://skill.phodal.com/", "前端技能树")
+                dl.links-list
+                  +dt("精选文章")
+                  +dd("https://uptodate.frontendrescue.org/zh/", "如何跟上前端开发的最新前沿")
+                  +dd("http://isux.tencent.com/h5-performance.html/","移动H5前端性能优化指南", "来自腾讯ISUX")
+                  +dd("http://isux.tencent.com/great-mobile-h5-pages.html", "那些过目不忘的H5页面", "来自腾讯ISUX")
+                  +dd("http://www.tqtan.com/2015/01/31/play-with-h5/", "玩转HTML5移动页面", "来自TQ的独立博客")
+                  +dd("http://www.w3ctech.com/topic/979", "MobileWeb 适配总结", "来自艾佢K")
+                  +dd("http://imweb.io/topic/5643850eed18cc424277050e", "搞定这些疑难杂症，向css3动画说yes", "来自结一")
+                dl.links-list
+                  +dt("手册/规范")
+                  +dd("https://dwqs.gitbooks.io/frontenddevhandbook/content/index.html", "前端开发者手册")
+                  +dd("https://li-xinyang.gitbooks.io/frontend-notebook/content/index.html", "前端开发笔记本")
+
+                  +dd("http://cssguidelin.es/", "CSS规范")
+                  +dd("https://github.com/airbnb/javascript", "JavaScript Style Guide")
+                  +dd("http://sass-guidelin.es/", "Sass规范")
+                  +dd("http://www.ecma-international.org/publications/standards/Ecma-262.htm", "ECMAScript3/5")
+                  +dd("http://www.ecma-international.org/ecma-262/6.0/index.html", "ECMAScript6")
+                  +dd("http://www.w3.org/TR/", "W3C")
+                  +dd("http://wiki.commonjs.org/wiki/Modules/1.0", "CommonJS Modules")
+                dl.links-list
+                  +dt("翻译文章")
+                  +dd("http://www.w3ctrain.com/2015/11/12/visual-guide-to-css3-flexbox-flexbox-playground/","学习flexbox属性")
+                  +dd("http://www.w3ctrain.com/2015/11/15/faster-ui-animations-with-velocity-js/", "使用Velocity.js改善用户体验")
+            section.section
+              +listTitle("design")
+              div.section__content
+                dl.links-list
+                  +dt("灵感来源")
+                  +dd("https://dribbble.com/", "Dribbble")
+                  +dd("http://www.siteinspire.com/", "SiteInspire")
+                  +dd("http://httpster.net/", "Httpster")
+                  +dd("http://www.shejidaren.com/", "设计达人")
+                  +dd("http://www.photoshoplady.com/", "PhotoshopLady")
+                  +dd("http://www.zcool.com.cn/", "站酷")
+                  +dd("http://www.ui.cn/", "UI中国")
+                  +dd("http://www.uiparade.com/", "uiparade")
+                  +dd("http://cn.365psd.com/", "365psd")
+                  +dd("https://www.behance.net/", "Behance")
+                  +dd("http://naldzgraphics.net/", "Naldz Graphics")
+                  +dd("http://www.mobile-patterns.com/", "mobile-patterns")
+                  +dd("http://www.huwayway.com/index.html", "wa.design")
+                  +dd("https://www.pinterest.com/categories/design/", "pinterest")
+                  +dd("http://huaban.com/cc", "花瓣")
+                  +dd("http://www.duitang.com/", "堆糖")
+                  +dd("https://www.meet-true.com", "觅处")
+                  +dd("http://shijue.me/home", "视觉中国")
+                dl.links-list
+                  +dt("学点设计")
+                  +dd("http://design.tutsplus.com/", "TutsplusDesign")
+                  +dd("http://www.uisdc.com/", "优设网")
+                  +dd("http://psd.fanextra.com/", "PSDFAN")
+                  +dd("http://design.tutsplus.com/", "Envato")
+                  +dd("http://abduzeedo.com/", "abduzeedo")
+                dl.links-list
+                  +dt("交互体验")
+                  +dd("http://navnav.co/", "Navnav")
+                  +dd("https://codyhouse.co/library", "Codyhouse")
+                  +dd("http://isux.tencent.com/", "腾讯ISUX")
+                  +dd("http://ued.taobao.com/", "淘宝UED")
+                  +dd("http://www.aliued.cn/", "阿里巴巴中文站")
+                  +dd("http://www.aliued.com/","阿里巴巴国际站")
+                  +dd("http://ued.alimama.com/","阿里妈妈UED")
+                  +dd("http://mux.baidu.com/","百度移动用户体验部")
+                  +dd("http://ued.baidu.com/","百度搜索用户体验中心")
+                  +dd("http://tgideas.qq.com/","腾讯TGideas")
+                  +dd("http://mxd.tencent.com/","腾讯MXD")
+                  +dd("http://ued.qq.com/","腾讯UED")
+                  +dd("http://cdc.tencent.com/","腾讯CDC")
+                  +dd("http://udc.weibo.com/","新浪UDC")
+                  +dd("http://cued.xunlei.com/","迅雷CUED")
+                  +dd("http://www.uxbooth.com/articles/","uxbooth")
+                  +dd("http://tympanus.net/codrops/","tympanus")
+                dl.links-list
+                  +dt("配色工具")
+                  +dd("https://color.adobe.com/zh/create/color-wheel/", "Adobe color")
+                  +dd("http://flatuicolors.com/", "FLATUI")
+                  +dd("http://www.thedayscolor.com/", "Thedayscolor")
+                  +dd("http://colrd.com/", "colrd")
+                  +dd("http://nipponcolors.com/", "Nipponcolors")
+                  +dd("http://www.colourlovers.com/", "Nolourlovers")
+                  +dd("http://color.uisdc.com/", "中国传统色")
+                  +dd("http://www.birthdaycolors.jp/","日本传统色")
+                  +dd("http://www.fashiontrendsetter.com/","Fashiontrendsetter")
+
+            section.section
+              +listTitle("other")
+              div.section__content
+                dl.links-list
+                  +dt("趣味学习")
+                  +dd("http://flexboxfroggy.com/", "flexboxfroggy")
+                dl.links-list
+                  +dt("会议/圈子")
+                  +dd("http://www.fequan.com/", "前端圈")
+                  +dd("http://www.webrebuild.org/", "WebRebuild")
+                  +dd("http://jsconf.com/", "JSConf")
+                  +dd("http://jsconf.cn/", "JSConf.cn")
+                  +dd()
+                dl.links-list
+                  +dt("面试")
+                  +dd("https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers", "前端开发面试题", 0, 10086)
+                  +dd("https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/Translations/Chinese","前端工作面试问题", 0, 10086)
+                  +dd("http://www.nowcoder.com/ta/front-end-interview", "前端面试经典题目合集", 0, 10086)
+                  +dd("https://github.com/hawx1993/Front-end-Interview-questions", "史上最全 前端开发面试问题及答案整理", 0, 10086)
+                dl.links-list
+                  +dt("导航/集合")
+                  +dd("https://github.com/youyudehexie/node123", "node.js中文资料导航")
+                  +dd("https://github.com/justjavac/free-programming-books-zh_CN", " 免费的计算机编程类中文书籍")
+                  +dd("https://github.com/Platform-CUF/use-gulp", "使用Gulp")
+                  +dd("https://github.com/vndmtrx/awesome-nodejs", "Awesome Node.js")
+                  +dd("https://github.com/codylindley/frontend-tools", "FrontEndTools")
+                  +dd("https://github.com/hawx1993/github-FE-project", "github-FE-project")
+                  +dd("http://f2er.club/", "前端俱乐部")
+                  +dd("http://www.whycss.com/", "whycss")
+                  +dd("https://github.com/AlloyTeam/Mars", "腾讯移动Web前端知识库")
+                  +dd("https://github.com/lvwzhen/iconpark", "iconfonts集合")
+                dl.links-list
+                  +dt("关于我们")
+                  +dd("http://www.w3ctrain.com/", "w3ctrain")
+                  +dd("http://www.helkyle.com/", "Helkyle")
+                  +dd("http://cyseria.xyz/", "Cyseria")
+                  +contrib()
+                dl.links-list
+                  +dt("友情链接")
+                  +dd("http://aevit.xyz/","Aevit's Lab")
+                  +dd("http://pandara.xyz/","Pandara's Zone")
+                  +contrib()
+          
+          
+          // 多说开始
+          div(class="ds-thread" data-thread-key="2015/11/08/font-end-favorite/" data-title="前端收藏夹" data-url="http://w3ctrain.com/2015/11/08/font-end-favorite/" data-author-key="1" id="ds-thread")
+
+  
+  <!-- build:js js/vendors.min.js -->
+  script(src="js/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8")
+  script(src="js/jquery-sticky-kit.min.js" type="text/javascript" charset="utf-8")
+  script(src="js/jquery.tooltipster.min.js" type="text/javascript" charset="utf-8")  
+  <!-- endbuild -->
+  script.
+    $(window).load(function(){
+      // $("#sticker").sticky({ topSpacing: 0,responsiveWidth: true });
+      //- $("#sticker").stick_in_parent();
+        $("#sidebar").on("scroll", function(event) {
+            event.stopPropagation();
+            event.preventDefault();
+            return false;
+        });
+    });
+    $(function() {
+        var configModule = {
+          scrollTopTime: 250,
+          mobileWidth: 768
+        };
+
+        $(".tooltip").tooltipster({
+           animation: "fade",
+           delay: 200,
+           touchDevices: false,
+           trigger: "hover",
+           position: "bottom",
+           'maxWidth': 300  
+        });
+
+        $("#sidebar-nav").on("click", "li", function(event) {
+            event.preventDefault();
+            /* Act on the event */
+            $this = $(this);
+            $this.siblings().removeClass("active");
+            $this.addClass("active");
+
+            var index = $this.attr("data-index");
+
+            if (typeof index == "string") {
+                var $ele = $("#" + index);
+                if ($ele.length) {
+                    $("#main-content").animate({
+                        scrollTop: $ele.position().top + 6},
+                        configModule.scrollTopTime,
+                        function() {
+                        //- history.pushState({index: index}, "", "#" + index);
+                    });
+                }
+            }
+            var winWidth = $( window ).width();
+            if (winWidth < configModule.mobileWidth) {
+              $("#open-sidebar").click();
+            }
+        });
+        $("#open-sidebar").on("click", function() {
+          $(this).toggleClass('open');
+          $('body').toggleClass('sidebar-open');
+        });
+
+        $('.author-meta').on("mouseenter", function() {
+          $(this).addClass('hover');
+        }).on("mouseleave", function() {
+          $(this).removeClass('hover');
+        })
+    });
+  script.
+    var duoshuoQuery = {short_name:"w3ctrain"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  

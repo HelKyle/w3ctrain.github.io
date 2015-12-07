@@ -1,0 +1,46 @@
+/*
+Error: Invalid CSS after "fixed": expected expression (e.g. 1px, bold), was ";"
+        on line 2 of /Users/helkyle/projects/w3ctrain.github.io/sass/pages/index.sass
+
+1: .add-link-wrapper {
+2:   position: fixed;
+3:   bottom: 0;
+4:   right: 12px;
+5:   padding: 8px;
+6:   
+7: }
+
+Backtrace:
+/Users/helkyle/projects/w3ctrain.github.io/sass/pages/index.sass:2
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/scss/parser.rb:1162:in `expected'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/script/lexer.rb:221:in `expected!'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/script/parser.rb:602:in `assert_done'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/script/parser.rb:63:in `parse'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/script/parser.rb:183:in `parse'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/script.rb:27:in `parse'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:1130:in `parse_script'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:720:in `parse_property'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:691:in `parse_property_or_rule'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:657:in `parse_line'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:535:in `build_tree'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:554:in `block in append_children'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:553:in `each'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:553:in `append_children'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:544:in `block in build_tree'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:537:in `each'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:537:in `build_tree'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:554:in `block in append_children'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:553:in `each'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:553:in `append_children'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:406:in `_to_tree'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/engine.rb:278:in `render'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/exec/sass_scss.rb:418:in `run'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/exec/base.rb:52:in `parse'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/lib/sass/exec/base.rb:19:in `parse!'
+/Applications/CodeKit.app/Contents/Resources/engines/scss/bin/sass:13:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"fixed\": expected expression (e.g. 1px, bold), was \";\"\A         on line 2 of /Users/helkyle/projects/w3ctrain.github.io/sass/pages/index.sass\A \A 1: .add-link-wrapper {\A 2:   position: fixed;\A 3:   bottom: 0;\A 4:   right: 12px;\A 5:   padding: 8px;\A 6:   \A 7: }"; }

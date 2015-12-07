@@ -1,0 +1,67 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+.footer {
+  border-top: 1px solid rgb(229, 229, 229);
+  background-color: #fbfbfb;
+}
+.footer-main {
+  padding-top: 44px;
+  padding-bottom: 44px;
+  font-size: 14px;
+  text-align: center;
+}
+.footer-main h3 {
+  color: #070707;
+}
+.footer-main img{
+  max-width: 240px;
+  width: 100%;
+}
+.footer-main .col-1-2:not(.footer-main .col-1-2:last-child) {
+  border-right: 1px solid darkgray;
+}
+.primary-footer a {
+	color: $primary-header-color;
+}
+
+.primary-footer {
+	color: #a5a5a5;
+	font-size: 14px;
+	padding-top: 24px;
+  @include clearfix;
+	@include respond-to('medium') {
+      	// padding-bottom: 22px;
+      	padding-top: 22px;
+    }
+}
+.primary-footer small {
+  /*float: left;*/
+  font-weight: 400;
+}
+.footer-links {
+  margin-bottom: 40px;
+}
+.footer-links--item {
+  dd a {
+    font-size: 14px;
+    font-family: $normal-font-stack;
+    color: #999;
+    &:hover {
+      border-bottom: 1px solid #aaa;
+    }
+  }
+}
+.footer-links--title {
+    font-weight: 500;
+    font-size: 18px;
+    color: #555;
+    font-family: $normal-font-stack;
+    margin-bottom: 8px;
+}
+.footer-copyright {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #f2f2f5;
+  font-family: $normal-font-stack;
+}

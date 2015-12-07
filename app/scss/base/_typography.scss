@@ -1,0 +1,158 @@
+/**
+ * Basic typography style for copy text
+ */
+//Default font-size, default line-height, heading font-size, vertical rythm related rules and stuff.
+// body {
+//   color: $text-color;
+//   font: normal 125% / 1.4 $text-font-stack;
+// }
+body {
+  font-family: $text-font-stack;
+  font-size: 100%;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background: white;
+}
+
+blockquote {
+  border-left: 2px solid $primary-color;
+  font-family: $code-font-stack;
+  font-size: 1.4em;
+  font-style: italic;
+  font-weight: $text-font-weight;
+  margin: 0 0 $padding/2;
+  padding-left: 25px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $head-font-stack;
+  margin: 0 0 $text-margin-bottom;
+  color: $text-color;
+}
+
+p {
+  font-family: $head-font-stack;
+  margin: 0 0 $text-margin-bottom;
+  color: $text-color;
+}
+
+
+h1 {
+  font-size: 36px;
+  line-height: 44px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+p {
+  margin: 0 0 $padding/3;
+}
+
+pre {
+  background: #222;
+  color: #fff;
+  display: block;
+  font-family: $code-font-stack;
+  font-size: 13px;
+  line-height: 20px;
+  margin: 0 0 $padding/2;
+  padding: 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+code {
+  border-radius: 5px;
+  background: #f5f5f5;
+  border: 1px solid rgba(0, 0, 0, .1);
+  font-family: $code-font-stack;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 2px 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+a {
+  color: $text-color;
+  cursor: pointer;
+}
+
+small {
+  font-size: 12px;
+  font-weight: 400;
+}
+strong {
+  font-weight: 400;
+}
+cite,
+em {
+  font-style: italic;
+}
+
+
+// Responsive styles if needed
+// @include responsive($big-break) {
+// }
+@include respond-to('medium') {
+  body {
+    font-size: 14px;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4,
+  h5,
+  p {
+    font-size: 14px;
+  }
+}
