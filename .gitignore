@@ -1,6 +1,7 @@
-/jade
-/sass
-
+/node_modules
+/app
+package.json
+gulpfile.js
 *.scssc
 *.DS_Store
 *.codekit
