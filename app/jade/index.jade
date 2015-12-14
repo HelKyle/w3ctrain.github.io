@@ -75,17 +75,14 @@ html(lang="zh-CN")
         s.parentNode.insertBefore(hm, s);
       })();
 body
-  
-  a(href="https://github.com/w3ctrain/w3ctrain.github.io" id='fork-me-on-github')
-    img(style="position: absolute; top: 0; right: 0; border: 0; z-index: 1; width: 160px;" src="img/forkme.png" alt="Fork me on GitHub")
+  a(class='right-20' href="https://github.com/w3ctrain/w3ctrain.github.io" id='fork-me-on-github')
+    img(style="position: absolute; top: 0; right: 15px; border: 0; z-index: 1; width: 160px;" src="img/forkme.png" alt="Fork me on GitHub")
 
   article.fullheight.w3ctrain
       .hamburger-wrapper#open-sidebar
           div.hamburger-arrow
             .before
             .after
-      div.add-link-wrapper
-        a(class='add-link' target="_blank" href="http://www.w3ctrain.com/contribute/") 贡献链接
       aside.sidebar#sidebar
         div.clearfix#sticker
           div.sidebar-content
@@ -97,10 +94,10 @@ body
               ul.sidebar__nav#sidebar-nav
                 each val, index in navItems
                   if index == "tool"
-                    li.active(data-index=index)
+                    li.active(id='navitem-' + index)
                       a(href="")= val
                   else 
-                    li(data-index=index)
+                    li(id='navitem-' + index)
                       a(href="")= val
               div.author-meta.text-center
                 div.flipper
@@ -334,7 +331,7 @@ body
                   +dd("https://github.com/alvarotrigo/multiscroll.js", "multiscroll.js")
                   +dd("https://github.com/cubiq/iscroll", "iscroll")
                   +dd("https://github.com/bevacqua/dragula", "dragula","Drag and drop so simple it hurts")
-
+                  +dd("https://github.com/imakewebthings/waypoints", "waypoints", "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element", 10086)
                 dl.links-list
                   +dt("动画/效果")
                   +dd("https://github.com/Popmotion/popmotion", "popmotion")
@@ -541,6 +538,7 @@ body
                   +dt("手册/规范")
                   +dd("https://dwqs.gitbooks.io/frontenddevhandbook/content/index.html", "前端开发者手册")
                   +dd("https://li-xinyang.gitbooks.io/frontend-notebook/content/index.html", "前端开发笔记本")
+                  +dd("http://wiki.jikexueyuan.com/project/material-design/", " Material Design 中文版", 0, 10086)
 
                   +dd("http://cssguidelin.es/", "CSS规范")
                   +dd("https://github.com/airbnb/javascript", "JavaScript Style Guide")
@@ -665,80 +663,10 @@ body
           div(class="ds-thread" data-thread-key="2015/11/08/font-end-favorite/" data-title="前端收藏夹" data-url="http://w3ctrain.com/2015/11/08/font-end-favorite/" data-author-key="1" id="ds-thread")
 
   
-  <!-- build:js js/vendors.min.js -->
+  <!-- build:js js/main.min.js -->
   script(src="js/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8")
-  script(src="js/jquery-sticky-kit.min.js" type="text/javascript" charset="utf-8")
   script(src="js/jquery.tooltipster.min.js" type="text/javascript" charset="utf-8")  
+  script(src="js/main.js" type="text/javascript" charset="utf-8")  
   <!-- endbuild -->
-  script.
-    $(window).load(function(){
-      // $("#sticker").sticky({ topSpacing: 0,responsiveWidth: true });
-      //- $("#sticker").stick_in_parent();
-        $("#sidebar").on("scroll", function(event) {
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
-        });
-    });
-    $(function() {
-        var configModule = {
-          scrollTopTime: 250,
-          mobileWidth: 768
-        };
-
-        $(".tooltip").tooltipster({
-           animation: "fade",
-           delay: 200,
-           touchDevices: false,
-           trigger: "hover",
-           position: "bottom",
-           'maxWidth': 300  
-        });
-
-        $("#sidebar-nav").on("click", "li", function(event) {
-            event.preventDefault();
-            /* Act on the event */
-            $this = $(this);
-            $this.siblings().removeClass("active");
-            $this.addClass("active");
-
-            var index = $this.attr("data-index");
-
-            if (typeof index == "string") {
-                var $ele = $("#" + index);
-                if ($ele.length) {
-                    $("#main-content").animate({
-                        scrollTop: $ele.position().top + 6},
-                        configModule.scrollTopTime,
-                        function() {
-                        //- history.pushState({index: index}, "", "#" + index);
-                    });
-                }
-            }
-            var winWidth = $( window ).width();
-            if (winWidth < configModule.mobileWidth) {
-              $("#open-sidebar").click();
-            }
-        });
-        $("#open-sidebar").on("click", function() {
-          $(this).toggleClass('open');
-          $('body').toggleClass('sidebar-open');
-        });
-
-        $('.author-meta').on("mouseenter", function() {
-          $(this).addClass('hover');
-        }).on("mouseleave", function() {
-          $(this).removeClass('hover');
-        })
-    });
-  script.
-    var duoshuoQuery = {short_name:"w3ctrain"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0] 
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+  
   
