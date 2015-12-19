@@ -69,14 +69,14 @@ function throttle(method, context) {
       section = $('.section'),
     	nav = $('#sidebar-nav'),
     	offset = 0;
-    var scrolling = false;
+    var userScrolling = false;
 
     setInterval(function() {
   	  throttle(onScroll);
     },  300);
 
     function onScroll() {
-      if (scrolling) {
+      if (userScrolling) {
 
       	var cur_pos = $('#main-content').scrollTop();
   			// headers.each(function() {
@@ -98,14 +98,14 @@ function throttle(method, context) {
         });
 
       }
-      scrolling = false;
+      userScrolling = false;
     }
 
 	$('#main-content').on('scroll mousedown wheel DOMMouseScroll mousewheel keyup', function (e) {
 	  //  throttle(onScroll, this);
       //用户滚动时才会触发
       if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
-        scrolling = true;
+         userScrolling = true;
       }
 
 	});

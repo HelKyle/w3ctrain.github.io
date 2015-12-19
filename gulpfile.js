@@ -1,4 +1,4 @@
-/* 
+/*
 * @Author: HelKyle
 * @Date:   2015-12-04 11:37:35
 * @Last Modified by:   HelKyle
@@ -19,9 +19,10 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     runSequence = require('run-sequence'),
     del = require('del'),
+    // uncss = require('gulp-uncss'),
     autoPrefixer = require('gulp-autoprefixer');
 
-// Development Tasks 
+// Development Tasks
 // -----------------
 gulp.task('help', function() {
   console.log('----------------------------------------');
@@ -65,14 +66,14 @@ gulp.task('jade', function() {
 // Watchers
 gulp.task('watch', function() {
   gulp.watch('app/scss/**/*.scss', ['sass']);
-  gulp.watch('app/jade/**/*.jade', ['jade']); 
-  gulp.watch('app/js/**/*.js', browserSync.reload); 
+  gulp.watch('app/jade/**/*.jade', ['jade']);
+  gulp.watch('app/js/**/*.js', browserSync.reload);
 })
 
-// Optimization Tasks 
+// Optimization Tasks
 // ------------------
 
-// Optimizing CSS and JavaScript 
+// Optimizing CSS and JavaScript
 gulp.task('useref', function() {
   var assets = useref.assets();
 
@@ -87,7 +88,7 @@ gulp.task('useref', function() {
     .pipe(gulp.dest(''))
 });
 
-// Optimizing Images 
+// Optimizing Images
 gulp.task('images', function() {
   return gulp.src('app/img/**/*.+(png|jpg|jpeg|gif|svg)')
   .pipe(cache(imagemin({
@@ -96,7 +97,16 @@ gulp.task('images', function() {
   .pipe(gulp.dest('img'))
 });
 
-// Cleaning 
+// Uncss
+gulp.task('uncss', function() {
+  gulp.src('./css/**/*.css')
+      .pipe(uncss({
+        html: ['index.html']
+      }))
+      .pipe(gulp.dest('./css/'))
+});
+
+// Cleaning
 gulp.task('clean', function(callback) {
   del('css');
   del('img');
@@ -128,7 +138,7 @@ gulp.task('default', function(callback) {
 
 gulp.task('build', function(callback) {
   runSequence(
-    'clean:dist', 
+    'clean:dist',
     ['sass', 'jade', 'images' ],
     'useref',
     // 'deploy',
