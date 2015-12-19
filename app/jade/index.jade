@@ -146,7 +146,7 @@ body
                   +dd("http://lesscss.org/", "Less")
                   +dd("https://github.com/stylus/stylus", "Stylus")
                   +dd("http://pleeease.io/","Pleeease")
-				  +dd("https://github.com/postcss/postcss","PostCSS")
+                  +dd("https://github.com/postcss/postcss","PostCSS")
                 dl.links-list
                   +dt("查找工具")
                   +dd("http://csstriggers.com/","CssTriggers", 0, 10086)
@@ -261,6 +261,7 @@ body
                   +dd("http://www.gbtags.com", "极客标签")
                   +dd("http://www.infoq.com/cn", "InfoQ中国")
                   +dd("http://www.css88.com/", "WEB前端开发")
+                  +dd("http://caibaojian.com/", "前端开发博客")
                   
                 dl.links-list
                   +dt("国外综合")
@@ -287,7 +288,12 @@ body
                   +dd("http://stackoverflow.com/", "StackOverflow", 0, 10087)
                   +dd("https://www.quora.com/", "Quora")
                   +dd("http://www.zhihu.com/", "知乎")
-
+                dl.links-list
+                  +dt("每日鲜")
+                  +dd("http://gold.xitu.io/", "稀土掘金", 0, 10086)
+                  +dd("http://toutiao.io/", "开发者头条", 0, 10086)
+                  +dd("http://geek.csdn.net/", "极客头条", 0, 10086)
+                  +dd("http://www.devtoutiao.com/", "开发头条", 0, 10086)
                 dl.links-list
                   +dt("前端大牛")
                   +dd("http://hugogiraudel.com/", "Hugo Giraudel")
@@ -316,7 +322,7 @@ body
 
                 dl.links-list
                   +dt("滑动/视差")
-
+                  
                   +dd("https://github.com/alvarotrigo/fullPage.js", "fullPage", 0, 10087)
                   +dd("http://www.idangero.us/swiper/#.VjdI0a4rKRs", "swiper")
                   +dd("http://kenwheeler.github.io/slick/", "Slick", "the last carousel you'll ever need")
@@ -455,6 +461,7 @@ body
               div.section__content
                 dl.links-list
                   +dt("综合")
+                  +dd("http://facebook.github.io/react/", "React", 0, 10086)
                   +dd("http://getbootstrap.com/", "Bootstrap")
                   +dd("http://foundation.zurb.com/", "Foundation")
                   +dd("http://semantic-ui.com/", "SemanticUI")
@@ -614,6 +621,22 @@ body
 
             section.section
               +listTitle("other")
+              dl.links-list
+                +dt("导航/集合")
+                +dd("http://www.awesomes.cn/", "Awesomes.cn", "也许是最好的开源前端库、框架和插件集合", 10086)
+                +dd("https://github.com/qiu-deqing/FE-learning", "结合个人经历总结的前端入门方法", 0, 10086)
+                +dd("https://github.com/JacksonTian/fks", "前端技能汇总", 0, 10086)
+                +dd("https://github.com/dypsilon/frontend-dev-bookmarks", "frontend-dev-bookmarks", 0, 10086)
+                +dd("https://github.com/youyudehexie/node123", "node.js中文资料导航")
+                +dd("https://github.com/justjavac/free-programming-books-zh_CN", " 免费的计算机编程类中文书籍")
+                +dd("https://github.com/Platform-CUF/use-gulp", "使用Gulp")
+                +dd("https://github.com/vndmtrx/awesome-nodejs", "Awesome Node.js")
+                +dd("https://github.com/codylindley/frontend-tools", "FrontEndTools")
+                +dd("https://github.com/hawx1993/github-FE-project", "github-FE-project")
+                +dd("http://f2er.club/", "前端俱乐部")
+                +dd("http://www.whycss.com/", "whycss")
+                +dd("https://github.com/AlloyTeam/Mars", "腾讯移动Web前端知识库")
+                +dd("https://github.com/lvwzhen/iconpark", "iconfonts集合")
               div.section__content
                 dl.links-list
                   +dt("趣味学习")
@@ -631,21 +654,7 @@ body
                   +dd("https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/Translations/Chinese","前端工作面试问题", 0, 10086)
                   +dd("http://www.nowcoder.com/ta/front-end-interview", "前端面试经典题目合集", 0, 10086)
                   +dd("https://github.com/hawx1993/Front-end-Interview-questions", "史上最全 前端开发面试问题及答案整理", 0, 10086)
-                dl.links-list
-                  +dt("导航/集合")
-                  +dd("https://github.com/qiu-deqing/FE-learning", "结合个人经历总结的前端入门方法", 0, 10086)
-                  +dd("https://github.com/JacksonTian/fks", "前端技能汇总", 0, 10086)
-                  +dd("https://github.com/dypsilon/frontend-dev-bookmarks", "frontend-dev-bookmarks", 0, 10086)
-                  +dd("https://github.com/youyudehexie/node123", "node.js中文资料导航")
-                  +dd("https://github.com/justjavac/free-programming-books-zh_CN", " 免费的计算机编程类中文书籍")
-                  +dd("https://github.com/Platform-CUF/use-gulp", "使用Gulp")
-                  +dd("https://github.com/vndmtrx/awesome-nodejs", "Awesome Node.js")
-                  +dd("https://github.com/codylindley/frontend-tools", "FrontEndTools")
-                  +dd("https://github.com/hawx1993/github-FE-project", "github-FE-project")
-                  +dd("http://f2er.club/", "前端俱乐部")
-                  +dd("http://www.whycss.com/", "whycss")
-                  +dd("https://github.com/AlloyTeam/Mars", "腾讯移动Web前端知识库")
-                  +dd("https://github.com/lvwzhen/iconpark", "iconfonts集合")
+                
                 dl.links-list
                   +dt("关于我们")
                   +dd("http://www.w3ctrain.com/", "w3ctrain")
