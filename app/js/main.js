@@ -29,7 +29,7 @@ function throttle(method, context) {
        'maxWidth': 300
     });
 
-    $("#sidebar-nav").on("click", "li", function(event) {
+    $("#sidebar-nav").on("click", "li[id]", function(event) {
         event.preventDefault();
         /* Act on the event */
         $this = $(this);

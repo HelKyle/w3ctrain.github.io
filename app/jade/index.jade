@@ -24,6 +24,10 @@ block content
                   else 
                     li(id='navitem-' + index)
                       a(href="")= val
+                each val, index in links
+                  li()
+                    a(href=val target="_blank")= index
+                    
               div.author-meta.text-center
                 div.flipper
                   a(href="http://weibo.com/joueu"  title="Hello! 我是周晓楷")
@@ -57,6 +61,8 @@ block content
               include ./_partial/public.jade
             section.section
               include ./_partial/frame.jade
+            section.section
+              include ./_partial/books.jade
             section.section
               include ./_partial/design.jade
             section.section
