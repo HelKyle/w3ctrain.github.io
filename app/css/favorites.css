@@ -1405,9 +1405,12 @@ body, html {
     display: block; }
   #main-content {
     width: 100%;
-    padding-left: 0px; }
+    padding: 0px; }
+    #main-content .section {
+      padding: 1rem; }
     #main-content .links-list {
-      padding-left: 0px; }
+      padding-left: 0px;
+      margin-left: 12px; }
     #main-content .links-item {
       margin-bottom: 10px;
       margin-right: 10px; }
@@ -1427,6 +1430,7 @@ body, html {
       display: block;
       margin-bottom: 10px; }
   #sidebar {
+    height: auto;
     transition: -webkit-transform 0.3s ease-in-out;
     transition: transform 0.3s ease-in-out;
     transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
@@ -1434,8 +1438,9 @@ body, html {
     transform: translate3d(-100%, 0, 0);
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch; }
-  .sidebar__nav li {
-    opacity: 0; }
+    #sidebar .sidebar__nav li {
+      display: block;
+      width: 100%; }
   .sidebar-open #sidebar {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
