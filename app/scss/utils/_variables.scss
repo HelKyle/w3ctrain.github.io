@@ -134,6 +134,7 @@ $primary-header-color: $dgrey;
 
 //== Colors
 $border-color: #bbb;
+$background-color: #efefef;
 
 //== Animation
 $transition-fast: 0.15s;
@@ -142,6 +143,7 @@ $transition-slow: 0.45s;
 
 //== Sidebar 
 $sidebar-width: 300px;
+$sidebar-height: 100px;
 $sidebar-color: #1b1c1d;
 
 //== header
@@ -218,3 +220,7 @@ $container-large-desktop:      (1140px + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
 
+$bg-train-color: #5dbdff;
+$decorate-color: #fb8a8a;
+$train-width: 8em;
+$train-height: 3.2em;

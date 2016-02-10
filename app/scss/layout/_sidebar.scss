@@ -1,16 +1,10 @@
 .sidebar {
-	max-width: 80%;
-	width: $sidebar-width;
-	background-color: $sidebar-color;
-	height: 100%;
-	font-size: 16px;
-	position: fixed;
+	width: 100px;
+	height: $sidebar-height;
     z-index: 1;
-    top: 0px;
-    bottom: 0;
-    left: 0;
     overflow: hidden;
-    
+    position: relative;
+    background-color: $sidebar-color;
  	
     &::-webkit-scrollbar {
 	    width: 0.8em;
@@ -23,7 +17,6 @@
 		overflow-y: scroll; 
 	}
 	&::-webkit-scrollbar-thumb {   
-		
 		background-color: rgba(255,255,255,0.25);
 	    border: 2px solid transparent;
 	    border-radius: 10px;
@@ -34,7 +27,6 @@
 	}
 
 	.sidebar-content {
-		min-height: 100%;
 		z-index: 0;
 		padding-left: 15px;
 		padding-right: 15px;
@@ -57,6 +49,12 @@
 		padding-left: 0px;
 		li {
 			position: relative;
+			display: inline-block;
+			width: 6rem;
+			text-align: center;
+			border: 1px solid #aaa;
+			border-radius: 0.2rem;
+
 			a {
 				display: block;
 				margin-bottom: 5px;
@@ -68,16 +66,14 @@
 				}
 				// margin-left: 5px;
 			}
+
 			&::before {
 				content: " ";
-
 				position: absolute;
-				width: 0px;
-				height: 100%;
-				background: white;
-				left: 0;
-				top: 0;
-				transition: width $transition-normal $transition-normal ease-in-out;
+				width: 10px;
+				height: 10px;
+				background-color: #fff;
+				border-radius: 50%;
 			}
 			&::after {
 				content: " ";
@@ -139,3 +135,121 @@
 	background-color: rgba(0,0,0,0.25);
 }
 
+
+
+.train-list {
+  list-style: none;
+  position: relative;
+  z-index: 1;
+  padding-left: 135px;
+  margin-top: 40px;
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    position: relative;;
+    top: 10px;
+    left: -135px;
+    background-color: #aaa;
+  }
+  li {
+    width: $train-width;
+    height: $train-height;
+    position: relative;
+    display: inline-block;
+    &:before {
+     content: '';
+     width: $train-width;
+     height: $train-height;
+     position: absolute;
+     border-radius: .5em;
+     border: 1px solid #ccc;
+     background: $bg-train-color;
+    }
+    &:after {
+      content: '';
+      display: inline-block;
+      width: .59em;
+      height: .3em;
+      background-color: #222;
+      position: absolute;
+      right: -.5em;
+    }
+    .train-top {
+      height: .3em;
+      border-radius: .5em .5em 0 0;
+      background-color: $decorate-color;
+      position: relative;
+      z-index: 2;
+    }
+    .train-body {
+      height: 2.1em;
+      position: relative;
+      z-index: 2;
+      .train-window {
+        display: inline-block;
+        width: .7em;
+        height: .4em;
+        margin: .9em .07em 0 .07em;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: .2em;
+        &:first-child {
+          margin-left: .4em;
+        }
+        &:last-child {
+          margin-right: .4em;
+        }
+      }
+      .train-font {
+        color: #fff;
+        font-size: 16px;
+        font-family: '微软雅黑';
+        padding: 0 8px;
+        margin-left: 0;
+      }
+    }
+    .train-bottom {
+      height: 3px;
+      background-color: $decorate-color;
+      position: relative;
+      z-index: 2;
+      &:before, &:after{
+        content: ' ';
+        display: inline-block;
+        width: .8em;
+        height: .8em;
+        position: absolute;
+        bottom: -1.2em;
+        background-color: #ec6941;
+        border: 1px solid #fff;
+        border-radius: 50%;
+      }
+      &:before {
+        left: 1.3em;
+      }
+      &:after {
+        right: 2em;
+      }
+    } 
+    
+    &:last-child {
+      &:before {
+       border-radius: .6em 3em 1.5em 0;
+       transform: scale(1.2, 1.4) perspective(.6em) rotateX(5deg);
+       transform-origin: bottom left;
+      }
+      &:after {
+        display: none;
+      }
+      .train-top {
+        width: 5em;
+        border-radius: 5em 10em 0 0;
+      }
+      .train-bottom {
+        width: 8.7em;
+      }
+    }
+  }
+}

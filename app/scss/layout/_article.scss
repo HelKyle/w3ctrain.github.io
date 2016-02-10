@@ -2,27 +2,18 @@ body, html {
 	margin: 0;
 	overflow: hidden;
 	height:100%;
+	background-color: $background-color;
 }
 .fullheight {
 	position: relative;
 	margin: 0;
 	overflow: hidden;
 	height:100%;
-	// display: flex;
- //    -webkit-flex-direction: row;
- //    -ms-flex-direction: row;
- //    flex-direction: row;
 }
 .main-content {
-	// -webkit-box-flex: 1;
- //    -webkit-flex: 1 1 auto;
- //    -ms-flex: 1 1 auto;
- //    flex: 1 1 auto;
- //    min-width: 0px;
- 	padding-left: $sidebar-width + $grid-gutter-width / 2;
- 	border-left: 1px solid $border-color;
- 	padding-top: 20px;
- 	padding-right: 15px;
+ 	padding-left: 3rem;
+ 	padding-top: $sidebar-height + 50px;
+ 	padding-right: 3rem;
  	position: absolute;
  	overflow-y: scroll;
  	-webkit-overflow-scrolling : touch;
@@ -35,6 +26,9 @@ body, html {
 	position: relative;
 }
 .section {
+	background-color: #fff;
+	padding: 2rem 2.5rem;
+	margin-bottom: 3rem;
 	.section__header {
 		border-left: 2px solid $light-blue-color;
 		padding-left: 20px;

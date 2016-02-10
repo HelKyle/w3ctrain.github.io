@@ -1,9 +1,4 @@
-/* 
-* @Author: HelKyle
-* @Date:   2015-12-04 11:37:35
-* @Last Modified by:   HelKyle
-* @Last Modified time: 2015-12-07 19:55:55
-*/
+
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     jade = require('gulp-jade'),
@@ -74,15 +69,15 @@ gulp.task('watch', function() {
 
 // Optimizing CSS and JavaScript 
 gulp.task('useref', function() {
-  var assets = useref.assets();
+ // var assets = useref.assets();
 
   return gulp.src('app/*.html')
-    .pipe(assets)
+   // .pipe(assets)
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', minifyCSS()))
     // Uglifies only if it's a Javascript file
     .pipe(gulpIf('*.js', uglify()))
-    .pipe(assets.restore())
+   // .pipe(assets.restore())
     .pipe(useref())
     .pipe(gulp.dest(''))
 });

@@ -1,7 +1,7 @@
 /* 
 * @Author: HelKyle
 * @Date:   2015-12-14 23:36:31
-* @Last Modified by:   HelKyle
+* @Last Modified by:   cyseria
 * @Last Modified time: 2015-12-15 00:33:18
 */
 
@@ -66,11 +66,11 @@ function throttle(method, context) {
 	      $('body').toggleClass('sidebar-open');
 	    });
 
-	    $('.author-meta').on("mouseenter", function() {
+	   /* $('.author-meta').on("mouseenter", function() {
 	      $(this).addClass('hover');
 	    }).on("mouseleave", function() {
 	      $(this).removeClass('hover');
-	    });
+	    });*/
 
 	 //    //滚动时触发
 	    var headers = $('.section__header'), 

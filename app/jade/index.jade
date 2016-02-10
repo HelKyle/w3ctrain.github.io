@@ -1,5 +1,5 @@
 - var ctribLink = "http://www.w3ctrain.com/contribute/";
-- var navItems={"tool": "前端工具","blog": "博客/社区/资讯","plugins": "各类插件","public": "微博/公众号","frame": "主流框架","books": "手册/书籍","design": "设计/交互", "other": "其他链接"};
+- var navItems={"tool": "工具","blog": "资讯","plugins": "插件","public": "微博","frame": "框架","books": "书籍","design": "设计", "other": "其他"};
 - var qrcodePath = "img/qrcode/";
 
 mixin listTitle(id)
@@ -49,7 +49,15 @@ mixin contrib()
   dd.links-item
     a(class="tooltip" href= ctribLink title="你可以先在这里提交" target="_blank")= '+'
 
-
+mixin train-item() 
+  li
+   div.train-top
+   div.train-body
+     span.train-window
+     span.train-font 工具
+     span.train-window
+     span.train-window
+   div.train-bottom
 doctype html
 html(lang="zh-CN")
   head
@@ -83,11 +91,27 @@ body
           div.hamburger-arrow
             .before
             .after
+
+      ul.train-list
+        +train-item() 
+        +train-item() 
+        +train-item() 
+        +train-item() 
+        +train-item() 
+        +train-item() 
+        li
+         div.train-top
+         div.train-body
+           span.train-window
+           span.train-font 工具
+           span.train-window
+         div.train-bottom
+         
       aside.sidebar#sidebar
         div.clearfix#sticker
           div.sidebar-content
             nav
-              div.sidebar__header.sidebar__item
+              //div.sidebar__header.sidebar__item
                 a(href="/")
                   img(class="sidebar__header-logo" src="img/fs-tags.png" title="前端收藏夹")
                   h1(class="sidebar__header-title") 前端收藏夹
@@ -99,26 +123,6 @@ body
                   else 
                     li(id='navitem-' + index)
                       a(href="")= val
-              div.author-meta.text-center
-                div.flipper
-                  a(href="http://weibo.com/joueu"  title="Hello! 我是周晓楷")
-                    img(src="img/avatar.png" class="avatar front")
-                    img(src="img/helkyle.jpg" alt="我是周晓楷" class="avatar back")
-                br
-                p.author-desc 我是周晓楷，华南师范大学大四学生，你可以通过下列方式找到我。
-                button(class="btn btn-outline__radius hover-me" href="http://weibo.com/joueu") Hover Me!
-                ul.icon-wrapper.text-center.animated
-                  li
-                    a.icon.codepen(title="codepen" href="http://codepen.io/HelKyle/" target="_blank")
-                  li
-                    a.icon.weibo(title="微博" href="http://weibo.com/joueu" target="_blank")
-                  li
-                    a.icon.github(title="github" href="https://github.com/helkyle" target="_blank")
-              p 本站点用于收集前端工具，收录优秀文章，欢迎补充！
-              div
-                iframe(src="https://ghbtns.com/github-btn.html?user=w3ctrain&repo=w3ctrain.github.io&type=star&count=true" frameborder="0" scrolling="0"  height="20px" style='display:inline-block')
-                iframe(src="https://ghbtns.com/github-btn.html?user=w3ctrain&repo=w3ctrain.github.io&type=fork&count=true" frameborder="0" scrolling="0"  height="20px" style='display:inline-block')
-              br
       div(class="main-content clearfix" id="main-content")
         div
           article.article
