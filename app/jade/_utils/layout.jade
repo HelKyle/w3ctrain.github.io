@@ -1,0 +1,30 @@
+include ./variable.jade
+
+doctype html
+html(lang="zh-CN")
+  head
+    meta(http-equiv="Content-Type" content="text/html;charset=UTF-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui")
+    title 前端收藏夹
+    meta(property="og:url" content="http://www.w3ctrain.com")
+    meta(property="og:site_name" content="w3ctrain")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style" content="black")
+    meta(name="description" content="前端收藏夹，为你提供全面的前端学习资源汇总。")
+    meta(name="keywords" content="w3ctrain,前端,收藏夹")
+    link(rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon")
+    <!-- build:css css/main.min.css -->
+    link(rel="stylesheet" href="css/favorites.css")
+    <!-- endbuild -->
+    script.
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?36b6d388c1cd16388dc7841302a00312";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+body.w3ctrain
+  block content
+  
+  

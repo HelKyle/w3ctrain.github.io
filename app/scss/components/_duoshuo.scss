@@ -1,7 +1,7 @@
 $duoshuoBaseBorderColor : #c7d4e1;
 $duoshuoBaseBgColor : #f6f8fa;
 .w3ctrain {
-  
+
   #ds-thread {
     padding: 10px;
     padding-left: 20px;
@@ -157,5 +157,11 @@ $duoshuoBaseBgColor : #f6f8fa;
     &:hover {
       background: none;
     }
+  }
+  #ds-smilies-tooltip {
+    transform: translateY(-132%);
+  }
+  #ds-smilies-tooltip ul.ds-smilies-tabs {
+    height: 140px;
   }
 }

@@ -143,8 +143,8 @@ $transition-slow: 0.45s;
 
 //== Sidebar 
 $sidebar-width: 300px;
-$sidebar-height: 100px;
-$sidebar-color: #1b1c1d;
+$sidebar-height: 50px;
+$sidebar-color: #333;
 
 //== header
 $header-color: $sidebar-color;
@@ -220,7 +220,7 @@ $container-large-desktop:      (1140px + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
 
-$bg-train-color: #5dbdff;
-$decorate-color: #fb8a8a;
-$train-width: 8em;
-$train-height: 3.2em;
+// $bg-train-color: #5dbdff;
+// $decorate-color: #fb8a8a;
+// $train-width: 8em;
+// $train-height: 3.2em;

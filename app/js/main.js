@@ -1,4 +1,4 @@
-/* 
+/*
 * @Author: HelKyle
 * @Date:   2015-12-14 23:36:31
 * @Last Modified by:   cyseria
@@ -98,14 +98,20 @@ function throttle(method, context) {
 		    $('#' + configModule.navItemPrefix + id).addClass('active');
 		}
 	});
+
+	function toggleNav(id) {
+		nav.find('li').removeClass('active');
+	    $('#' + configModule.navItemPrefix + id).addClass('active');
+	}
 })(jQuery);
 
+//多说评论
 var duoshuoQuery = {short_name:"w3ctrain"};
 (function() {
   var ds = document.createElement('script');
   ds.type = 'text/javascript';ds.async = true;
   ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
   ds.charset = 'UTF-8';
-  (document.getElementsByTagName('head')[0] 
+  (document.getElementsByTagName('head')[0]
   || document.getElementsByTagName('body')[0]).appendChild(ds);
 })();
