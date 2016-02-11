@@ -80,12 +80,12 @@ gulp.task('useref', function() {
 
   return gulp.src('app/*.html')
    // .pipe(assets)
+    .pipe(useref())
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', minifyCSS()))
     // Uglifies only if it's a Javascript file
     .pipe(gulpIf('*.js', uglify()))
    // .pipe(assets.restore())
-    .pipe(useref())
     .pipe(gulp.dest(''))
 });
 
