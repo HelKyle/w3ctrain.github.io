@@ -20,6 +20,7 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     runSequence = require('run-sequence'),
     del = require('del'),
+
     // uncss = require('gulp-uncss'),
     autoPrefixer = require('gulp-autoprefixer');
 
@@ -76,16 +77,13 @@ gulp.task('watch', function() {
 
 // Optimizing CSS and JavaScript
 gulp.task('useref', function() {
- // var assets = useref.assets();
 
   return gulp.src('app/*.html')
-   // .pipe(assets)
     .pipe(useref())
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', minifyCSS()))
     // Uglifies only if it's a Javascript file
     .pipe(gulpIf('*.js', uglify()))
-   // .pipe(assets.restore())
     .pipe(gulp.dest(''))
 });
 
@@ -117,6 +115,7 @@ gulp.task('clean', function(callback) {
 gulp.task('clean:dist', function(callback) {
   del('css');
   del('js');
+  del('fonts');
   return cache.clearAll(callback);
 })
 
@@ -127,6 +126,11 @@ gulp.task('publish-html', function () {
     .pipe(revReplace({manifest : manifest}))
     .pipe(gulp.dest(''));
 });
+
+gulp.task('fonts', function() {
+  return gulp.src('app/fonts/**/*')
+  .pipe(gulp.dest('./fonts/'))
+})
 
 // Build Sequences
 // ---------------
@@ -140,7 +144,7 @@ gulp.task('default', function(callback) {
 gulp.task('build', function(callback) {
   runSequence(
     'clean:dist',
-    ['sass', 'jade', 'images' ],
+    ['sass', 'jade', 'images', 'fonts' ],
     'useref',
     // 'deploy',
     callback

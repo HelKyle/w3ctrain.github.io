@@ -1,6 +1,5 @@
 /node_modules
 
-gulpfile.js
 *.scssc
 *.DS_Store
 *.codekit

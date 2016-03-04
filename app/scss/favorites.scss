@@ -5,7 +5,8 @@
 @import
   'utils/variables',
   'utils/functions',
-  'utils/mixins';
+  'utils/mixins',
+  'fonts/icomoon';
 // 'vendor/bootstrap/tooltips',
 // 1. Vendors
 //
@@ -40,7 +41,8 @@
   'layout/sidebar',
   'layout/header',
   'layout/article',
-  'layout/author',
+  // 'layout/author',
+  'layout/member',
   'layout/menu',
   'layout/mobile',
   'layout/nav';

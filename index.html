@@ -39,36 +39,76 @@
       </div>
     </div>
     <aside id="sidebar" class="sidebar">
-      <!--img(src="img/favicon.jpg")-->
       <div id="sticker" class="clearfix">
         <div class="sidebar-content">
           <nav>
+            <div class="sidebar__header sidebar__item">
+              <a href="/">
+                <img src="img/fs-tags.png" title="前端收藏夹" class="sidebar__header-logo">
+                <h1 class="sidebar__header-title">前端收藏夹</h1>
+              </a>
+            </div>
             <ul id="sidebar-nav" class="sidebar__nav">
               <li id="navitem-tool" class="active">
-                <a href="">工具</a>
+                <a href="">前端工具</a>
               </li>
               <li id="navitem-blog">
-                <a href="">资讯</a>
+                <a href="">博客/社区/资讯</a>
               </li>
               <li id="navitem-plugins">
-                <a href="">插件</a>
+                <a href="">各类插件</a>
               </li>
               <li id="navitem-public">
-                <a href="">公众号</a>
+                <a href="">微博/公众号</a>
               </li>
               <li id="navitem-frame">
-                <a href="">框架</a>
+                <a href="">主流框架</a>
               </li>
               <li id="navitem-books">
-                <a href="">书籍</a>
+                <a href="">手册/书籍</a>
               </li>
               <li id="navitem-design">
-                <a href="">设计</a>
+                <a href="">设计/交互</a>
               </li>
               <li id="navitem-other">
-                <a href="">其他</a>
+                <a href="">其他链接</a>
+              </li>
+              <li>
+                <a href="https://github.com/w3ctrain/w3ctrain.github.io/issues/1" target="_blank">贡献资源</a>
               </li>
             </ul>
+            <ul class="member-list">
+              <li class="member-item">
+                <a title="个人博客" href="http://helkyle.com" target="_blank">
+                  <img src="http://7xlkda.com1.z0.glb.clouddn.com/avatar_helkyle.png?imageView2/2/w/100/h/100/q/75" class="member__avatar">
+                  <span class="member__name">周晓楷</span>
+                </a>
+                <div class="member__social">
+                  <a title="微博" href="http://weibo.com/joueu" target="_blank" class="icon-weibo"></a>
+                  <a title="博客" href="http://helkyle.com" target="_blank" class="icon-pencil"></a>
+                  <a title="codepen" href="http://codepen.io/HelKyle/" target="_blank" class="icon-codepen"></a>
+                  <a title="github" href="https://github.com/HelKyle" target="_blank" class="icon-mark-github"></a>
+                </div>
+              </li>
+              <li class="member-item">
+                <a title="个人博客" href="http://cyseria.xyz/" target="_blank">
+                  <img src="http://7xlkda.com1.z0.glb.clouddn.com/avater_cyseria.jpg?imageView2/2/w/100/h/100/q/75" class="member__avatar">
+                  <span class="member__name">蔓青</span>
+                </a>
+                <div class="member__social">
+                  <a title="微博" href="http://weibo.com/u/1887935412" target="_blank" class="icon-weibo"></a>
+                  <a title="博客" href="http://cyseria.xyz/" target="_blank" class="icon-pencil"></a>
+                  <a title="codepen" href="http://codepen.io/cyseria" target="_blank" class="icon-codepen"></a>
+                  <a title="github" href="https://github.com/cyseria" target="_blank" class="icon-mark-github"></a>
+                </div>
+              </li>
+            </ul>
+            <p>本站点用于收集前端工具，收录优秀文章，欢迎补充！</p>
+            <div>
+              <iframe src="https://ghbtns.com/github-btn.html?user=w3ctrain&amp;repo=w3ctrain.github.io&amp;type=star&amp;count=true" frameborder="0" scrolling="0" height="20px" style="display:inline-block"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=w3ctrain&amp;repo=w3ctrain.github.io&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" height="20px" style="display:inline-block"></iframe>
+            </div>
+            <br>
           </nav>
         </div>
       </div>
@@ -77,7 +117,7 @@
       <div>
         <article class="article">
           <section class="section">
-            <h3 id="tool" class="section__header">工具</h3>
+            <h3 id="tool" class="section__header">前端工具</h3>
             <div class="section__content">
               <dl class="links-list">
                 <dt class="links-title arrow-box">自动化</dt>
@@ -102,7 +142,7 @@
                 <dd class="links-item">
                   <a href="https://github.com/oklai/koala" target="_blank">Koala</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://webpack.github.io/" target="_blank">Webpack</a>
                 </dd>
               </dl>
@@ -120,7 +160,7 @@
                 <dd class="links-item hot">
                   <a href="http://sass-lang.com/" target="_blank">Sass</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://babeljs.io/" target="_blank">BabelJs</a>
                 </dd>
                 <dd class="links-item">
@@ -141,7 +181,7 @@
               </dl>
               <dl class="links-list">
                 <dt class="links-title arrow-box">查找工具</dt>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://csstriggers.com/" target="_blank">CssTriggers</a>
                 </dd>
                 <dd class="links-item">
@@ -219,16 +259,16 @@
                 <dd class="links-item">
                   <a href="http://www.ultraedit.com/" target="_blank">UltraEdit</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://github.com/ajaxorg/ace" target="_blank">ace</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://brackets.io/" target="_blank">Brackets</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://www.lighttable.com/" target="_blank">LightTable</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>
                 </dd>
               </dl>
@@ -330,7 +370,7 @@
               </dl>
               <dl class="links-list">
                 <dt class="links-title arrow-box">其它</dt>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://unbug.github.io/codelf" title="帮你搞定命名问题" target="_blank" class="tooltip">CodeIf</a>
                 </dd>
                 <dd class="links-item">
@@ -402,11 +442,14 @@
                 <dd class="links-item">
                   <a href="http://sarasoueidan.com/tools/circulus/" target="_blank">circulus</a>
                 </dd>
+                <dd class="links-item new">
+                  <a href="http://mockjs.com/" title="生成随机数据，拦截 Ajax 请求" target="_blank" class="tooltip">Mock.js</a>
+                </dd>
               </dl>
             </div>
           </section>
           <section class="section">
-            <h3 id="blog" class="section__header">资讯</h3>
+            <h3 id="blog" class="section__header">博客/社区/资讯</h3>
             <div class="section__content">
               <dl class="links-list">
                 <dt class="links-title arrow-box">国内综合</dt>
@@ -467,14 +510,17 @@
                 <dd class="links-item">
                   <a href="http://caibaojian.com/" target="_blank">前端开发博客</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://wx.h5.vc/" target="_blank">爱奇舞——H5.vc</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://www.kancloud.cn/explore" target="_blank">看云</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://www.hubwiz.com/" title="用互动的方式，学习最前沿的技术。" target="_blank" class="tooltip">汇智网</a>
+                </dd>
+                <dd class="links-item new">
+                  <a href="http://blog.jobbole.com/" target="_blank">伯乐在线</a>
                 </dd>
               </dl>
               <dl class="links-list">
@@ -500,6 +546,9 @@
                 <dd class="links-item">
                   <a href="https://www.codeschool.com/" target="_blank">Codeschool</a>
                 </dd>
+                <dd class="links-item new">
+                  <a href="http://www.codewars.com/" target="_blank">codewars</a>
+                </dd>
                 <dd class="links-item">
                   <a href="http://www.html5rocks.com/" target="_blank">Html5Rocks</a>
                 </dd>
@@ -515,10 +564,10 @@
                 <dd class="links-item">
                   <a href="http://www.digitaltutors.com/" target="_blank">DigitalTutors</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://ponyfoo.com/" target="_blank">Ponyfoo.com</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://tutorialzine.com/" target="_blank">tutorialzine</a>
                 </dd>
               </dl>
@@ -554,16 +603,16 @@
               </dl>
               <dl class="links-list">
                 <dt class="links-title arrow-box">每日鲜</dt>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://gold.xitu.io/" target="_blank">稀土掘金</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://toutiao.io/" target="_blank">开发者头条</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://geek.csdn.net/" target="_blank">极客头条</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://www.devtoutiao.com/" target="_blank">开发头条</a>
                 </dd>
               </dl>
@@ -636,7 +685,7 @@
             </div>
           </section>
           <section class="section">
-            <h3 id="plugins" class="section__header">插件</h3>
+            <h3 id="plugins" class="section__header">各类插件</h3>
             <div class="section__content">
               <dl class="links-list">
                 <dt class="links-title arrow-box">滑动/视差</dt>
@@ -682,7 +731,7 @@
                 <dd class="links-item">
                   <a href="https://github.com/bevacqua/dragula" title="Drag and drop so simple it hurts" target="_blank" class="tooltip">dragula</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://github.com/imakewebthings/waypoints" title="Waypoints is a library that makes it easy to execute a function whenever you scroll to an element" target="_blank" class="tooltip">waypoints</a>
                 </dd>
               </dl>
@@ -700,19 +749,19 @@
                 <dd class="links-item">
                   <a href="http://snapsvg.io/" target="_blank">Snapsvg</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://soulwire.github.io/sketch.js/" target="_blank">sketch.js</a>
                 </dd>
                 <dd class="links-item">
                   <a href="https://github.com/impress/impress.js" title="各种炫的效果，用来做幻灯片不错" target="_blank" class="tooltip">impress</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://github.com/julianshapiro/blast" target="_blank">blast.js</a>
                 </dd>
                 <dd class="links-item">
                   <a href="https://github.com/garand/sticky" target="_blank">sticky</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://colorify.rocks/index.html" title="一个从图片中获取主要颜色的插件" target="_blank" class="tooltip">Colorify.js</a>
                 </dd>
                 <dd class="links-item">
@@ -772,7 +821,7 @@
                 <dd class="links-item">
                   <a href="https://github.com/codrops/ElasticProgress" target="_blank">ElasticProgress</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://una.im/CSSgram/" title="A tiny (&lt;1kb gzipped!) library for recreating Instagram filters with CSS filters and blend modes." target="_blank" class="tooltip">CSSgram</a>
                 </dd>
               </dl>
@@ -838,7 +887,7 @@
                 <dd class="links-item">
                   <a href="https://chrome.google.com/webstore/detail/auto-refresh-page/edbmfligbmlgmfbbhoamolndhjffanka" target="_blank">页面自动刷新</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://chrome.google.com/webstore/detail/chrome-sniffer-plus/fhhdlnnepfjhlhilgmeepgkhjmhhhjkh?hl=zh-CN" title="探测当前网页正在使用的开源软件或者js类库" target="_blank" class="tooltip">Chrome Sniffer Plus</a>
                 </dd>
               </dl>
@@ -929,7 +978,7 @@
             </div>
           </section>
           <section class="section">
-            <h3 id="public" class="section__header">公众号</h3>
+            <h3 id="public" class="section__header">微博/公众号</h3>
             <div class="section__content">
               <dl class="links-list">
                 <dt class="links-title arrow-box">前端微博</dt>
@@ -975,6 +1024,9 @@
                 <dd class="links-item">
                   <a href="http://weibo.com/p/1006062717844351" target="_blank">HTML5梦工场</a>
                 </dd>
+                <dd class="links-item new">
+                  <a href="http://weibo.com/kujian" title="NEW20160304" target="_blank" class="tooltip">前端开发博客</a>
+                </dd>
                 <dd class="links-item">
                   <a href="https://github.com/w3ctrain/w3ctrain.github.io/issues/1" title="分享你收藏的优秀资源" target="_blank" class="tooltip">+贡献资源</a>
                 </dd>
@@ -1005,8 +1057,11 @@
                 <dd class="links-item">
                   <a href="http://www.75team.com/weekly/" target="_blank">奇舞周刊</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://www.kancloud.cn/jsfront/month" target="_blank">JS前端开发群月报</a>
+                </dd>
+                <dd class="links-item">
+                  <a href="http://fex.baidu.com/weekly/" target="_blank">百度FEX技术周刊</a>
                 </dd>
               </dl>
               <dl class="links-list">
@@ -1027,6 +1082,14 @@
                   <a>前端早读课</a>
                   <img src="img/qrcode/fezaoduke.jpg" />
                 </dd>
+                <dd class="links-item qrcode-link">
+                  <a>凹凸实验室</a>
+                  <img src="img/qrcode/aotu.jpg" />
+                </dd>
+                <dd class="links-item qrcode-link">
+                  <a>前端大全</a>
+                  <img src="img/qrcode/qianduandaquan.jpg" />
+                </dd>
                 <dd class="links-item">
                   <a href="https://github.com/w3ctrain/w3ctrain.github.io/issues/1" title="分享你收藏的优秀资源" target="_blank" class="tooltip">+贡献资源</a>
                 </dd>
@@ -1034,11 +1097,11 @@
             </div>
           </section>
           <section class="section">
-            <h3 id="frame" class="section__header">框架</h3>
+            <h3 id="frame" class="section__header">主流框架</h3>
             <div class="section__content">
               <dl class="links-list">
                 <dt class="links-title arrow-box">综合</dt>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://facebook.github.io/react/" target="_blank">React</a>
                 </dd>
                 <dd class="links-item">
@@ -1074,10 +1137,10 @@
                 <dd class="links-item">
                   <a href="https://html5boilerplate.com/" target="_blank">Html5Boilerplate</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://www.google.com/design/spec/material-design/introduction.html#" target="_blank">Material design</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://www.lightningdesignsystem.com/" target="_blank">Lightning Design System</a>
                 </dd>
               </dl>
@@ -1183,7 +1246,7 @@
             </div>
           </section>
           <section class="section">
-            <h3 id="books" class="section__header">书籍</h3>
+            <h3 id="books" class="section__header">手册/书籍</h3>
             <div class="section__content">
               <dl class="links-list">
                 <dt class="links-title arrow-box">书籍</dt>
@@ -1265,7 +1328,7 @@
                 <dd class="links-item">
                   <a href="https://li-xinyang.gitbooks.io/frontend-notebook/content/index.html" target="_blank">前端开发笔记本</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://wiki.jikexueyuan.com/project/material-design/" target="_blank"> Material Design 中文版</a>
                 </dd>
                 <dd class="links-item">
@@ -1302,7 +1365,7 @@
             </div>
           </section>
           <section class="section">
-            <h3 id="design" class="section__header">设计</h3>
+            <h3 id="design" class="section__header">设计/交互</h3>
             <div class="section__content">
               <dl class="links-list">
                 <dt class="links-title arrow-box">灵感来源</dt>
@@ -1472,19 +1535,19 @@
             </div>
           </section>
           <section class="section">
-            <h3 id="other" class="section__header">其他</h3>
+            <h3 id="other" class="section__header">其他链接</h3>
             <dl class="links-list">
               <dt class="links-title arrow-box">导航/集合</dt>
-              <dd class="links-item new">
+              <dd class="links-item">
                 <a href="http://www.awesomes.cn/" title="也许是最好的开源前端库、框架和插件集合" target="_blank" class="tooltip">Awesomes.cn</a>
               </dd>
-              <dd class="links-item new">
+              <dd class="links-item">
                 <a href="https://github.com/qiu-deqing/FE-learning" target="_blank">结合个人经历总结的前端入门方法</a>
               </dd>
-              <dd class="links-item new">
+              <dd class="links-item">
                 <a href="https://github.com/JacksonTian/fks" target="_blank">前端技能汇总</a>
               </dd>
-              <dd class="links-item new">
+              <dd class="links-item">
                 <a href="https://github.com/dypsilon/frontend-dev-bookmarks" target="_blank">frontend-dev-bookmarks</a>
               </dd>
               <dd class="links-item">
@@ -1548,16 +1611,16 @@
               </dl>
               <dl class="links-list">
                 <dt class="links-title arrow-box">面试</dt>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers" target="_blank">前端开发面试题</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/Translations/Chinese" target="_blank">前端工作面试问题</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="http://www.nowcoder.com/ta/front-end-interview" target="_blank">前端面试经典题目合集</a>
                 </dd>
-                <dd class="links-item new">
+                <dd class="links-item">
                   <a href="https://github.com/hawx1993/Front-end-Interview-questions" target="_blank">史上最全 前端开发面试问题及答案整理</a>
                 </dd>
               </dl>

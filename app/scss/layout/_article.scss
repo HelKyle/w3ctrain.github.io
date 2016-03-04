@@ -11,9 +11,10 @@ body, html {
 	height:100%;
 }
 .main-content {
- 	padding-left: 3rem;
- 	padding-top: $sidebar-height + 50px;
- 	padding-right: 3rem;
+ 	padding-left: $sidebar-width + $grid-gutter-width / 2;
+ 	border-left: 1px solid $border-color;
+ 	padding-top: 20px;
+ 	padding-right: 0;
  	position: absolute;
  	overflow-y: scroll;
  	-webkit-overflow-scrolling : touch;

@@ -1,4 +1,36 @@
 @charset "UTF-8";
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?et4yno");
+  src: url("../fonts/icomoon.eot?et4yno#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?et4yno") format("truetype"), url("../fonts/icomoon.woff?et4yno") format("woff"), url("../fonts/icomoon.svg?et4yno#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-weibo:before {
+  content: "\e900"; }
+
+.icon-mark-github:before {
+  content: "\f00a"; }
+
+.icon-pencil:before {
+  content: "\f058"; }
+
+.icon-codepen:before {
+  content: "\eae4"; }
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -1021,12 +1053,17 @@ em {
     font-size: 14px; } }
 
 .sidebar {
-  width: 100%;
-  height: 50px;
+  max-width: 80%;
+  width: 300px;
+  background-color: #1b1c1d;
+  height: 100%;
+  font-size: 16px;
+  position: fixed;
   z-index: 1;
-  overflow: hidden;
-  position: relative;
-  background-color: #333; }
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  overflow: hidden; }
   .sidebar::-webkit-scrollbar {
     width: 0.8em; }
   .sidebar:hover {
@@ -1040,39 +1077,46 @@ em {
     .sidebar {
       font-size: 14px; } }
   .sidebar .sidebar-content {
+    min-height: 100%;
     z-index: 0;
     padding-left: 15px;
-    padding-right: 15px;
-    text-align: center; }
+    padding-right: 15px; }
   .sidebar .is-sticky #sticker {
     min-height: 100%;
-    background-color: #333; }
+    background-color: #1b1c1d; }
+  .sidebar .sidebar__header-title, .sidebar .sidebar__nav {
+    color: white; }
   .sidebar .sidebar__nav {
-    display: inline-block;
     list-style: none;
-    margin-top: 4px;
+    margin: 1.25em 0;
     padding-left: 0px; }
     .sidebar .sidebar__nav li {
-      position: relative;
-      display: inline-block;
-      width: 6rem;
-      text-align: center; }
+      position: relative; }
       .sidebar .sidebar__nav li a {
         display: block;
+        margin-bottom: 5px;
         width: 100%;
-        padding: 0.4em 0;
-        color: #ccc;
+        padding: 0.625em 0 0.625em 1.25em;
         transition: color 0.3s ease-in-out; }
         .sidebar .sidebar__nav li a:hover, .sidebar .sidebar__nav li a:active {
           text-decoration: none; }
+      .sidebar .sidebar__nav li::before {
+        content: " ";
+        position: absolute;
+        width: 0px;
+        height: 100%;
+        background: white;
+        left: 0;
+        top: 0;
+        transition: width 0.3s 0.3s ease-in-out; }
       .sidebar .sidebar__nav li::after {
         content: " ";
         position: absolute;
         width: 0;
         height: 100%;
+        background-color: #21b982;
         left: 0;
         top: 0;
-        border-bottom: 2px solid #aaa;
         z-index: -1;
         opacity: 0;
         transition: width 0.3s ease-in-out, opacity 0.3s; }
@@ -1111,7 +1155,7 @@ em {
   background-color: rgba(0, 0, 0, 0.25); }
 
 .primary-header {
-  background: #333;
+  background: #1b1c1d;
   width: 100%; }
 
 body, html {
@@ -1127,9 +1171,10 @@ body, html {
   height: 100%; }
 
 .main-content {
-  padding-left: 3rem;
-  padding-top: 100px;
-  padding-right: 3rem;
+  padding-left: 315px;
+  border-left: 1px solid #bbb;
+  padding-top: 20px;
+  padding-right: 0;
   position: absolute;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -1203,132 +1248,35 @@ body, html {
   text-align: center;
   width: 80px; }
 
-.author-meta {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin: 10px auto 20px;
-  text-align: center;
-  border-top: 1px solid #666;
-  position: relative; }
-  .author-meta .avatar {
-    width: 8em;
-    border-radius: 50%;
-    transition: all 0.3s ease; }
-    .author-meta .avatar:hover {
-      border-radius: 5px; }
-  .author-meta .author-desc {
-    opacity: 0;
-    height: 0; }
-  .author-meta .icon-wrapper {
-    width: 180px;
-    height: 38px;
-    margin: auto;
-    padding: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 2px;
-    background-color: #21b982;
-    list-style: none;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-display: column;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    opacity: 0; }
-    .author-meta .icon-wrapper li {
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      width: 33%; }
-      .author-meta .icon-wrapper li:nth-child(1) .icon {
-        -webkit-animation-delay: 1.3s;
-        animation-delay: 1.3s; }
-      .author-meta .icon-wrapper li:nth-child(2) .icon {
-        -webkit-animation-delay: 1.6s;
-        animation-delay: 1.6s; }
-      .author-meta .icon-wrapper li:nth-child(3) .icon {
-        -webkit-animation-delay: 1.9s;
-        animation-delay: 1.9s; }
-      .author-meta .icon-wrapper li .icon {
-        opacity: 0;
-        height: 38px;
-        border-radius: 50%;
-        float: left;
-        background-image: url(../img/spritesheet.png);
-        background-position: center;
-        background-repeat: no-repeat; }
-        .author-meta .icon-wrapper li .icon.codepen {
-          width: 24px;
-          height: 24px;
-          background-position: -2px -2px; }
-        .author-meta .icon-wrapper li .icon.weibo {
-          width: 24px;
-          height: 24px;
-          background-position: -30px -2px; }
-        .author-meta .icon-wrapper li .icon.github {
-          width: 24px;
-          height: 24px;
-          background-position: -58px -2px; }
-  @media (min-width: 768px) {
-    .author-meta.hover .flipper .back {
-      -webkit-transform: rotateY(0deg);
-      transform: rotateY(0deg);
-      transition: -webkit-transform 0.3s 0.3s forwards ease-in-out;
-      transition: transform 0.3s 0.3s forwards ease-in-out;
-      transition: transform 0.3s 0.3s forwards ease-in-out, -webkit-transform 0.3s 0.3s forwards ease-in-out; }
-    .author-meta.hover .flipper .front {
-      -webkit-transform: rotateY(180deg);
-      transform: rotateY(180deg);
-      transition: -webkit-transform 0.3s 0.3s forwards ease-in-out;
-      transition: transform 0.3s 0.3s forwards ease-in-out;
-      transition: transform 0.3s 0.3s forwards ease-in-out, -webkit-transform 0.3s 0.3s forwards ease-in-out; }
-    .author-meta.hover .hover-me {
-      opacity: 0; }
-    .author-meta.hover .icon-wrapper {
-      margin-bottom: 30px;
-      animation: showIconWrapper 0.3s forwards ease;
-      -webkit-animation: showIconWrapper 0.3s forwards ease; }
-    .author-meta.hover .icon {
-      animation: showIcon 0.3s forwards ease;
-      -webkit-animation: showIcon 0.3s forwards ease; }
-    .author-meta.hover .author-desc {
-      -webkit-animation: slideDown 0.3s forwards, fadeInDown 0.6s 0.6s forwards ease;
-      animation: slideDown 0.3s forwards, fadeInDown 0.6s 0.6s forwards ease; } }
-  @media (max-width: 768px) {
-    .author-meta .flipper .back {
-      -webkit-transform: rotateY(0deg);
-      transform: rotateY(0deg);
-      transition: -webkit-transform 0.3s 0.3s forwards ease-in-out;
-      transition: transform 0.3s 0.3s forwards ease-in-out;
-      transition: transform 0.3s 0.3s forwards ease-in-out, -webkit-transform 0.3s 0.3s forwards ease-in-out; }
-    .author-meta .flipper .front {
-      -webkit-transform: rotateY(180deg);
-      transform: rotateY(180deg);
-      transition: -webkit-transform 0.3s 0.3s forwards ease-in-out;
-      transition: transform 0.3s 0.3s forwards ease-in-out;
-      transition: transform 0.3s 0.3s forwards ease-in-out, -webkit-transform 0.3s 0.3s forwards ease-in-out; }
-    .author-meta .hover-me {
-      opacity: 0; }
-    .author-meta .icon-wrapper {
-      margin-bottom: 30px;
-      animation: showIconWrapper 0.3s forwards ease;
-      -webkit-animation: showIconWrapper 0.3s forwards ease; }
-    .author-meta .icon {
-      animation: showIcon 0.3s forwards ease;
-      -webkit-animation: showIcon 0.3s forwards ease; }
-    .author-meta .author-desc {
-      -webkit-animation: slideDown 0.3s forwards, fadeInDown 0.6s 0.6s forwards ease;
-      animation: slideDown 0.3s forwards, fadeInDown 0.6s 0.6s forwards ease; } }
+.member-list {
+  list-style: none;
+  border-top: 1px solid #fff;
+  padding: 20px;
+  margin: 0;
+  line-height: 50px;
+  color: #BBC7CC; }
+  .member-list .member-item {
+    position: relative;
+    margin-bottom: 6px; }
+    .member-list .member-item > a {
+      color: #70787D;
+      text-decoration: none; }
+      .member-list .member-item > a:hover {
+        color: #BBC7CC; }
+    .member-list .member-item .member__avatar {
+      border-radius: 50%;
+      width: 50px;
+      margin-right: 8px;
+      vertical-align: middle; }
+    .member-list .member-item .member__social {
+      float: right;
+      font-size: 20px; }
+      .member-list .member-item .member__social > a {
+        color: #70787D;
+        padding-left: 1px;
+        text-decoration: none; }
+        .member-list .member-item .member__social > a:hover {
+          color: #BBC7CC; }
 
 /**
  * the absolute menu
