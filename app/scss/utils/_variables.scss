@@ -1,0 +1,226 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Regular font family
+/// @type List
+/// 300 16px/22px
+// $text-font-stack: 'Lantinghei SC', 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
+$text-font-stack: 华文黑体, 'Microsoft YaHei', 微软雅黑, STHei, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/// Regular font family
+/// @type List
+/// 300 16px/22px
+$head-font-stack: 'Lantinghei SC', 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+
+$normal-font-stack: 华文黑体, 'Microsoft YaHei', 微软雅黑, STHei, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/// Copy text color
+/// @type Color
+// $text-color: #676767 !default;
+$text-color: #676767 !default;
+
+$text-light-color: white !default;
+
+
+/// Light grey
+/// @type Color
+$light-grey: #EDEDED !default;
+
+/// Medium grey
+/// @type Color
+$mid-grey: #999 !default;
+
+/// Dark grey
+/// @type Color
+$dark-grey: #444 !default;
+
+/// Container's maximum width
+/// Below that is 100%
+/// @type Length
+$max-width: 1024px !default;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+/// @see {mixin} respond-to
+/// '( min-width: 481px) and ( max-width: 768px)'
+$breakpoints: (
+  'xs': (all),
+  'sm': (max-width: 768px),
+  'md': ( max-width: 768px),
+  'lg': (max-width: 1024px),
+
+  'minsm': (min-width: 768px),
+  'minmd': ( min-width: 768px),
+  'minlg': (min-width: 1024px),
+
+  'small': (max-width: 768px),
+  'medium': ( max-width: 768px),
+  'large': (max-width: 1024px),
+
+
+) !default;
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
+
+
+
+//**
+// Project Settings
+//**
+
+// Consistent settings
+$br: 5px; // Border-radius
+$btn-br: 5px; // Button border-radius
+$padding: 40px; // Padding and margins
+$line-height: 38px; // Consistent height for buttons, inputs etc.
+
+
+// Better default colors
+// Cool #eb5163
+$aqua:  #7fdbff;
+$blue:  #0074d9;
+$navy:  #001f3f;
+$teal:  #39cccc;
+$green: #2ecc40;
+$olive: #3d9970;
+$lime:  #01ff70;
+// Warm
+$yellow:  #ffdc00;
+$orange:  #ff851b;
+$red:     #ff4136;
+$fuchsia: #f012be;
+$purple:  #b10dc9;
+$maroon:  #85144b;
+// Gray Scale
+$white:  #fff;
+$silver: #ddd;
+$grey:   #aaa;
+$black:  #111;
+$lgrey:  #648880;
+$dgrey:  #333;
+
+
+
+// Project color variables #21b982 #f65034
+$primary-color: #21b982;
+$secondary-color: #233e5b;
+$tertiary-color: #aaa;
+$light-blue-color: #66C6FD;
+
+
+$danger-color: $red; // Bad color for errors, validation etc.
+$success-color: $green; // Good color for success etc.
+$info-color: $blue; // Good color for success etc.
+$warning-color: $orange; // Good color for success etc.
+$subtle-color: $grey; // Subtle color for subtle text
+
+
+$text-margin-bottom: 16px;
+$text-font-weight: 100;
+
+$links-color: $lgrey;
+$links-hover-color: $dgrey;
+
+$primary-header-color: $dgrey;
+
+//== Colors
+$border-color: #bbb;
+$background-color: #efefef;
+
+//== Animation
+$transition-fast: 0.15s;
+$transition-normal: 0.3s;
+$transition-slow: 0.45s;
+
+//== Sidebar
+$sidebar-width: 300px;
+$sidebar-height: 100px;
+$sidebar-color: #1b1c1d;
+
+//== header
+$header-color: $sidebar-color;
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns:              12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         30px !default;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-sm-min !default;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+$container-tablet:             (720px + $grid-gutter-width) !default;
+//** For `$screen-sm-min` and up.
+$container-sm:                 $container-tablet !default;
+
+// Medium screen / desktop
+$container-desktop:            (940px + $grid-gutter-width) !default;
+//** For `$screen-md-min` and up.
+$container-md:                 $container-desktop !default;
+
+// Large screen / wide desktop
+$container-large-desktop:      (1140px + $grid-gutter-width) !default;
+//** For `$screen-lg-min` and up.
+$container-lg:                 $container-large-desktop !default;
+
+// $bg-train-color: #5dbdff;
+// $decorate-color: #fb8a8a;
+// $train-width: 8em;
+// $train-height: 3.2em;

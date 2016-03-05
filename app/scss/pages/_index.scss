@@ -1,0 +1,17 @@
+.add-link-wrapper {
+	position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 8px 24px;
+  background: $primary-color;
+  z-index: 1000;
+  border-top-left-radius: 8px;
+  a {
+  	color: white;
+  }
+}
+#fork-me-on-github {
+  @include respond-to('sm') {
+    display: none;
+  }
+}

@@ -1,0 +1,54 @@
+- var ctribLink = "https://github.com/w3ctrain/w3ctrain.github.io/issues/1";
+- var navItems = {"tool": "前端工具","blog": "博客/社区/资讯","plugins": "各类插件","public": "微博/公众号","frame": "主流框架","books": "手册/书籍","design": "设计/交互", "other": "其他链接"};
+- var links = {"贡献资源": ctribLink}
+- var qrcodePath = "img/qrcode/";
+
+- var DD_TYPE = {'NEW':'NEW20160304','HOT':'HOT'};
+
+mixin listTitle(id)
+  if navItems[id] != "undefined"
+    h3(class="section__header" id= id)= navItems[id]
+  else
+    h3(class="section__header") id
+
+mixin dda(url, name, title)
+  if typeof(title) !== 'undefined'
+    a(class="tooltip" href=url title=title  target="_blank")= name
+  else
+    a(href=url  target="_blank")= name
+
+mixin dd(url, name, title, type)
+  - type = type == undefined ? title : type;
+  
+  - if(DD_TYPE[title] || title == 0) {
+  -  title = undefined;
+  - }
+  if type === DD_TYPE.NEW
+      dd.links-item.new
+        +dda(url, name, title)
+  else if type === DD_TYPE.HOT
+      dd.links-item.hot
+        +dda(url, name, title)
+  else
+    dd.links-item
+      +dda(url, name, title)
+
+mixin dt(name)
+  dt.links-title.arrow-box= name
+
+mixin qrcode(img, name)
+  dd.links-item.qrcode-link
+    a= name
+    img(src=qrcodePath + img)
+
+
+mixin book(url, name, title)
+  dd.links-item
+    if typeof(title) !== 'undefined'
+      a(class="tooltip" href=url title=title  target="_blank") 《#{name}》
+    else
+      a(href=url  target="_blank") 《#{name}》
+
+mixin contrib()
+  dd.links-item
+    a(class="tooltip" href= ctribLink title="分享你收藏的优秀资源" target="_blank")= '+贡献资源'

@@ -1,0 +1,40 @@
+.hamburger-arrow {
+	font-size: 20px;
+	height: 0.1em;
+	width: 1.4em;
+	background: white;
+	position: absolute;
+	border-radius: 0.1em;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	.before, .after {
+		// display: block;
+		// position: absolute;
+		height: 0.1em;
+		width: 1.4em;
+		right: 0;
+		background-color: white;
+		border-radius: 0.1em;
+		transition: all 0.25s ease-in-out;
+	}
+	.before {
+		margin-top: -0.4em;
+	}
+	.after {
+		margin-top: 0.7em;
+	}
+	
+}
+.open .hamburger-arrow {
+	.after {
+		width: 0.8em;
+		transform:  translate(-0.1em, -0.14em) rotate(45deg);
+	}
+	.before {
+		width: 0.8em;
+		transform:  translate(-0.1em, 0.16em) rotate(-45deg);
+	}
+}

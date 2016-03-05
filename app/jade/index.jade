@@ -1,0 +1,86 @@
+extends ./_utils/layout.jade
+block content
+  a(class='right-20' href="https://github.com/w3ctrain/w3ctrain.github.io" id='fork-me-on-github')
+    img(style="position: absolute; top: 0; right: 15px; border: 0; z-index: 2; width: 160px;" src="img/forkme.png" alt="Fork me on GitHub")
+
+  article.fullheight
+      .hamburger-wrapper#open-sidebar
+          div.hamburger-arrow
+            .before
+            .after
+      aside.sidebar#sidebar
+        div.clearfix#sticker
+          div.sidebar-content
+            nav
+              div.sidebar__header.sidebar__item
+                a(href="/")
+                  img(class="sidebar__header-logo" src="img/fs-tags.png" title="前端收藏夹")
+                  h1(class="sidebar__header-title") 前端收藏夹
+              ul.sidebar__nav#sidebar-nav
+                each val, index in navItems
+                  if index == "tool"
+                    li.active(id='navitem-' + index)
+                      a(href="")= val
+                  else 
+                    li(id='navitem-' + index)
+                      a(href="")= val
+                each val, index in links
+                  li()
+                    a(href=val target="_blank")= index
+                    
+              ul.member-list
+                li.member-item
+                  a(title="个人博客" href="http://helkyle.com" target="_blank")
+                    img.member__avatar(src="http://7xlkda.com1.z0.glb.clouddn.com/avatar_helkyle.png?imageView2/2/w/100/h/100/q/75")
+                    span.member__name 周晓楷
+                  div.member__social
+                    a.icon-weibo(title='微博' href='http://weibo.com/joueu' target="_blank")
+                    a.icon-pencil(title='博客' href='http://helkyle.com' target="_blank")
+                    a.icon-codepen(title='codepen' href='http://codepen.io/HelKyle/' target="_blank")
+                    a.icon-mark-github(title='github' href='https://github.com/HelKyle' target="_blank")
+                li.member-item
+                  a(title="个人博客" href="http://cyseria.xyz/" target="_blank")
+                    img.member__avatar(src="http://7xlkda.com1.z0.glb.clouddn.com/avater_cyseria.jpg?imageView2/2/w/100/h/100/q/75")
+                    span.member__name 蔓青
+                  div.member__social
+                    a.icon-weibo(title='微博' href='http://weibo.com/u/1887935412' target="_blank")
+                    a.icon-pencil(title='博客' href="http://cyseria.xyz/" target="_blank")
+                    a.icon-codepen(title='codepen' href='http://codepen.io/cyseria' target="_blank")
+                    a.icon-mark-github(title='github' href='https://github.com/cyseria' target="_blank")
+                
+              p 本站点用于收集前端工具，收录优秀文章，欢迎补充！
+              div
+                iframe(src="https://ghbtns.com/github-btn.html?user=w3ctrain&repo=w3ctrain.github.io&type=star&count=true" frameborder="0" scrolling="0"  height="20px" style='display:inline-block')
+                iframe(src="https://ghbtns.com/github-btn.html?user=w3ctrain&repo=w3ctrain.github.io&type=fork&count=true" frameborder="0" scrolling="0"  height="20px" style='display:inline-block')
+              br
+      div(class="main-content clearfix" id="main-content")
+        div
+          article.article
+            section.section
+              include ./_partial/tools.jade
+            section.section
+              include ./_partial/blog.jade
+            section.section
+              include ./_partial/plugins.jade
+            section.section
+              include ./_partial/public.jade
+            section.section
+              include ./_partial/frame.jade
+            section.section
+              include ./_partial/books.jade
+            section.section
+              include ./_partial/design.jade
+            section.section
+              include ./_partial/other.jade
+          
+          // 多说开始
+          div(class="ds-thread" data-thread-key="2015/11/08/font-end-favorite/" data-title="前端收藏夹" data-url="http://w3ctrain.com/2015/11/08/font-end-favorite/" data-author-key="1" id="ds-thread")
+      
+  <!-- build:js js/main.min.js -->
+  script(src="js/jquery-2.1.3.min.js" type="text/javascript" charset="utf-8")
+  script(src="js/jquery.tooltipster.min.js" type="text/javascript" charset="utf-8") 
+  script(src="js/main.js" type="text/javascript" charset="utf-8")  
+  <!-- endbuild -->
+
+  
+  

@@ -1,0 +1,130 @@
+.author-meta {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin: 10px auto 20px;
+	text-align: center;
+	border-top: 1px solid #666;
+	position: relative;
+	.avatar {
+		width: 8em;
+		border-radius: 50%;
+		&:hover {
+			border-radius: 5px;
+		}
+		transition: all 0.3s ease;
+	}
+	.author-desc {
+		opacity: 0;
+		height: 0;
+	}
+	.icon-wrapper {
+		width: 180px;
+		height: $line-height;
+		margin: auto;
+		padding: 0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-radius: 2px;
+		background-color: $primary-color;
+		list-style: none;
+
+		display: flex;
+	    flex-display: column;
+	    flex-wrap: nowrap;
+
+	    opacity: 0;
+		li {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		    width: 33%;
+			@for $i from 1 to 4 {
+			  &:nth-child(#{$i}) .icon {
+			     animation-delay: #{$i * 0.3 + 1s} ;
+			  }
+			}
+			.icon {
+				opacity: 0;
+				height: $line-height;
+				border-radius: 50%;
+				float: left;
+				// background-color: red;
+				background-image: url(../img/spritesheet.png);
+				background-position: center;
+	    		background-repeat: no-repeat;
+	    		
+				&.codepen {
+				    width: 24px;
+				    height: 24px;
+				    background-position: -2px -2px;
+				}
+				&.weibo {
+				    width: 24px;
+				    height: 24px;
+    				background-position: -30px -2px;
+				}
+				&.github {
+				    width: 24px;
+				    height: 24px;
+    				background-position: -58px -2px;
+				}
+			}
+		}
+	}
+	@include respond-to('minsm') {
+		&.hover {
+			.flipper .back{
+				transform: rotateY(0deg);
+				transition: transform 0.3s 0.3s forwards ease-in-out;
+			}
+			.flipper .front {
+				transform: rotateY(180deg);
+				transition: transform 0.3s 0.3s forwards ease-in-out;
+			}
+			.hover-me {
+				opacity: 0;
+			}
+			.icon-wrapper {
+				margin-bottom: 30px;
+				animation: showIconWrapper 0.3s forwards ease;
+				-webkit-animation: showIconWrapper 0.3s forwards ease;
+			}
+			.icon {
+				animation: showIcon 0.3s forwards ease;
+				-webkit-animation: showIcon 0.3s forwards ease;
+			}
+			.author-desc {
+				animation: slideDown 0.3s forwards, fadeInDown 0.6s 0.6s forwards ease;
+			}
+		}
+	}
+	@include respond-to('sm') {
+		.flipper .back{
+			transform: rotateY(0deg);
+			transition: transform 0.3s 0.3s forwards ease-in-out;
+		}
+		.flipper .front {
+			transform: rotateY(180deg);
+			transition: transform 0.3s 0.3s forwards ease-in-out;
+		}
+		.hover-me {
+			opacity: 0;
+		}
+		.icon-wrapper {
+			margin-bottom: 30px;
+			animation: showIconWrapper 0.3s forwards ease;
+			-webkit-animation: showIconWrapper 0.3s forwards ease;
+		}
+		.icon {
+			animation: showIcon 0.3s forwards ease;
+			-webkit-animation: showIcon 0.3s forwards ease;
+		}
+		.author-desc {
+			animation: slideDown 0.3s forwards, fadeInDown 0.6s 0.6s forwards ease;
+		}
+	}
+}
+
+

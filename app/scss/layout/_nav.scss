@@ -1,0 +1,79 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the Navigation of the site/application.
+// -----------------------------------------------------------------------------
+
+.nav>ul {
+	margin:0;
+	padding: 0;
+}
+.primary-nav {
+	@include respond-to('medium') {
+	  display: none;
+	  height: 0px;
+      overflow: hidden;
+      
+      z-index: 20;
+      display: block;
+      
+      width: 100%;
+      position: absolute;
+      text-align: center;
+
+      top: 54px;
+
+      // background-color: rgba(32, 34, 37, 0.25);
+      padding: 0;
+      left: 0;
+      margin: 0 ;
+	}
+}
+
+.primary-nav ul li a{
+  color: darkgray;
+  display: block;
+
+  @include respond-to('medium') {
+      display: block;
+      margin: 0;
+      padding: 18px 35px;
+      border-bottom: 1px solid #bdc4c9;
+  }
+}
+
+.primary-nav ul li.active a,
+.primary-nav ul li a:hover {
+  color: #565656;
+  // border-bottom: 1px solid darkgray;
+}
+.nav {
+  text-align: right;
+
+  @include respond-to('medium') {
+  	margin-top: 1px;
+    padding: 0;
+  }
+}
+.nav>ul>li {
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+  vertical-align: top;
+}
+.nav>ul>li:last-child {
+  margin-right: 0;
+}
+.diminish .primary-nav {
+	@include respond-to('medium') {
+  	  margin-top: 1px;
+      padding: 0;
+   }
+}
+
+
+.primary-header .nav li {
+  @include respond-to('medium') {
+      display: block;
+      margin: 0;
+      background-color: white;
+  }
+}

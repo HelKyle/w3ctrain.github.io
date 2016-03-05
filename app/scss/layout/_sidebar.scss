@@ -1,0 +1,140 @@
+.sidebar {
+	max-width: 80%;
+	width: $sidebar-width;
+	background-color: $sidebar-color;
+	height: 100%;
+	font-size: 16px;
+	position: fixed;
+    z-index: 1000;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+
+
+    &::-webkit-scrollbar {
+	    width: 0.8em;
+	}
+
+	&::-webkit-scrollbar-track {
+	    // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	}
+	&:hover {
+		overflow-y: scroll;
+	}
+	&::-webkit-scrollbar-thumb {
+
+		background-color: rgba(255,255,255,0.25);
+	    border: 2px solid transparent;
+	    border-radius: 10px;
+	    background-clip: padding-box;
+	}
+	@include respond-to('md') {
+		font-size: 14px;
+	}
+
+	.sidebar-content {
+		min-height: 100%;
+		z-index: 0;
+		padding-left: 15px;
+		padding-right: 15px;
+		// overflow: scroll;
+	}
+	.is-sticky #sticker {
+		min-height: 100%;
+		background-color: $sidebar-color;
+	}
+	// position: relative;
+    // -webkit-box-flex: 0;
+    // flex: 0 0 auto;
+
+	.sidebar__header-title, .sidebar__nav {
+		color: white;
+	}
+	.sidebar__nav {
+		list-style: none;
+		margin: 1.25em 0;
+		padding-left: 0px;
+		li {
+			position: relative;
+			a {
+				display: block;
+				margin-bottom: 5px;
+				width: 100%;
+				padding: 0.625em 0 0.625em 1.25em;
+				transition: color $transition-normal ease-in-out;
+				&:hover, &:active {
+					text-decoration: none;
+				}
+				// margin-left: 5px;
+			}
+			&::before {
+				content: " ";
+
+				position: absolute;
+				width: 0px;
+				height: 100%;
+				background: white;
+				left: 0;
+				top: 0;
+				transition: width $transition-normal $transition-normal ease-in-out;
+			}
+			&::after {
+				content: " ";
+				position: absolute;
+				width: 0;
+				height: 100%;
+				background-color: $primary-color;
+				left: 0;
+				top: 0;
+				z-index: -1;
+				opacity: 0;
+				transition: width $transition-normal ease-in-out, opacity $transition-normal;
+			}
+			&.active::before {
+				width: 6px;
+			}
+			&.active::after {
+				width: 100%;
+				opacity: 1;
+			}
+			&:hover a {
+				color: $primary-color;
+			}
+			&.active a {
+				color: white;
+			}
+		}
+
+	}
+	.sidebar__item {
+		padding: 10px;
+	}
+
+	.sidebar__header {
+		border-bottom: 1px solid #fff;
+		.sidebar__header-logo {
+			display: inline-block;
+			width: 2.875em;
+			vertical-align: middle;
+			margin-top: -5px;
+		}
+		.sidebar__header-title {
+			font-size: 1.3125em;
+			display: inline-block;
+			padding: 10px;
+			margin-bottom: 0;
+		}
+	}
+
+}
+.hamburger-wrapper {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	right: 10px;
+	top: 10px;
+	width: 40px;
+	height: 40px;
+	background-color: rgba(0,0,0,0.25);
+}

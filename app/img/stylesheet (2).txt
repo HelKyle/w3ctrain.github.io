@@ -1,0 +1,23 @@
+.recipeicon {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.recipeicon-1 {
+    width: 24px;
+    height: 24px;
+    background-position: -2px -2px;
+}
+
+.recipeicon-2 {
+    width: 24px;
+    height: 24px;
+    background-position: -30px -2px;
+}
+
+.recipeicon-3 {
+    width: 24px;
+    height: 24px;
+    background-position: -58px -2px;
+}
