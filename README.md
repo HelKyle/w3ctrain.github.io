@@ -21,9 +21,6 @@ gulp
 gulp build
 ```
 
-如果本项目对你有所帮助，可以选择打赏我们   
-![qrcode](./qrcode.jpg)
-
 
 ## License
 源码基于 [Creative Commons Attribution 3.0 license](http://creativecommons.org/licenses/by/3.0/us/deed.en) 协议，允许分享，复制，修改，但请勿商用，传播时请保留原作品署名
